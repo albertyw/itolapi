@@ -1,9 +1,6 @@
 """
 This is the main file for the iTOL API
-This is an update for a previous iTOL API released by me in September, 2010
-See README.txt for details
-@author: Albert Wang (albertyw@mit.edu)
-@date: December, 2010
+See the README.txt for details
 """
 import sys
 import os
@@ -29,20 +26,21 @@ class Itol:
         modifying the variables dictionary
         """
         # Variable checking
-        if not isinstance(variable_name,str):
+        if not isinstance(variable_name, str):
             raise TypeError('variable name is not a string')
-        if not isinstance(variable_value,str):
+        if not isinstance(variable_value, str):
             raise TypeError('variable value should be a string')
         if self.is_file(variable_name):
             if not os.path.isfile(variable_value):
                 raise IOError('variable name '+variable_name+\
                     ' indicates value should be a file')
-            variable_value = open(variable_value,'r')
+            variable_value = open(variable_value, 'r')
         # Add the variable
         self.variables[variable_name] = variable_value
         return True
         
-    def is_file(self, variable_name):
+    @staticmethod
+    def is_file(variable_name):
         """
         This returns a boolean whether the string in variable_name is a file
         This is determined by looking at whether "File" is a substring of 
@@ -86,7 +84,7 @@ class Itol:
         Print the variables that have been set so far
         """
         for variable_name, variable_value in self.variables.items():
-            if isinstance(variable_value,file):
+            if isinstance(variable_value, file):
                 print variable_name+': '+variable_value.name
             else:
                 print variable_name+': '+variable_value
@@ -98,45 +96,38 @@ class Itol:
         if self.variables.has_key(variable_name):
             del self.variables[variable_name]
         
-    def command_line(self,argv):
-        """
-        The "automated" iTOL API runner.  This reads the arguments in and runs 
-        the API with it
-        """
-        if len(argv) == 1:
-            self.print_help()
-            sys.exit()
-        if argv[1] == '-h':
-            self.print_help()
-            sys.exit()
-        try:
-            itol_upload = Itol()
-            itol_upload.add_variable('treeFile',argv[1])
-            itol_upload.upload()
-            print itol_upload.get_webpage()
-        except:
-            self.print_help()
         
-    def print_help(self):
-        """
-        This just prints help information for people calling this script 
-        from console
-        """
-        print 'Usage: python itol.py TREEFILE'
-        print '  or:  python itol.py -h'
-        print 'TREEFILE is the path to the tree file to be uploaded to iTOL'
-        print 'Calling Itol.py with an acceptable tree file \
-        will return a URL to access the tree'
-        print ''
-        print '  -h    Display this help message'
-        print ''
-        print 'Use ItolExport.py to export uploaded trees from iTOL'
-        print 'Read the README.txt and Itol.py source code for \
-        information about more powerful iTOL calls.'
-        print ''
-        print 'Report bugs to <albertyw@mit.edu>'
+def print_help():
+    """
+    This just prints help information for people calling this script 
+    from console
+    """
+    print 'Usage: python itol.py TREEFILE'
+    print '  or:  python itol.py -h'
+    print 'TREEFILE is the path to the tree file to be uploaded to iTOL'
+    print 'Calling Itol.py with an acceptable tree file \
+    will return a URL to access the tree'
+    print ''
+    print '  -h    Display this help message'
+    print ''
+    print 'Use ItolExport.py to export uploaded trees from iTOL'
+    print 'Read the README.txt and Itol.py source code for \
+    information about more powerful iTOL calls.'
+    print ''
+    print 'Report bugs to <albertyw@mit.edu>'
 
     
 if __name__ == "__main__":
-    itol_upload = Itol()
-    itol_upload.command_line(sys.argv)
+    if len(sys.argv) == 1:
+        print_help()
+        sys.exit()
+    if sys.argv[1] == '-h':
+        print_help()
+        sys.exit()
+    try:
+        itol_upload = Itol()
+        itol_upload.add_variable('treeFile', sys.argv[1])
+        itol_upload.upload()
+        print itol_upload.get_webpage()
+    except:
+        print_help()

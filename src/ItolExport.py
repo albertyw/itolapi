@@ -1,8 +1,6 @@
 """
-This class handles exporting of trees created by iTOL
+This is the main file for exporting of trees created by iTOL
 See the README.txt for details
-@author: Albert Wang (albertyw@mit.edu)
-@date: September 16, 2010
 """
 import Comm
 import sys
@@ -41,7 +39,7 @@ class ItolExport:
         return self.params
     
     ###Do Exporting
-    def export(self, file_location):
+    def export(self, export_location):
         """
         Call the export process
         Calling this directly assumes that the export filetype is already set in the export params
@@ -49,12 +47,12 @@ class ItolExport:
         @return: whether the export works
         """
         output = self.comm.export_image(self.params)
-        file_handle = open(file_location,'w')
+        file_handle = open(export_location,'w')
         file_handle.write(output)
         file_handle.close()
 
 
-###Running from command line
+# Print help info to the command line
 def print_help():
     """
     This prints some help info to the command line
@@ -78,11 +76,8 @@ def print_help():
     print ''
     print 'Report bugs to <albertyw@mit.edu>'
 
+# Run from command line
 if __name__ == "__main__":
-    """
-    Run from command line
-    @param sys.argv
-    """
     if len(sys.argv) == 1:
         print 'Use -h for help'
         sys.exit(0)
@@ -103,6 +98,7 @@ if __name__ == "__main__":
         verbose = True
     if '-d' in sys.argv:
         view_datasets = True
+    
     #Three expected arguments
     tree_id = sys.argv[1]
     file_location = sys.argv[2]
