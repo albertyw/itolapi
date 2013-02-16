@@ -3,14 +3,14 @@ ITOL-API
 
 Python API for the Interactive Tree of Life (iTOL)
 
-Created by Albert Wang (albertyw@mit.edu), Updated March 2011
+Created by Albert Wang (albertyw@mit.edu) in December 2010
 
-With Complements to: [iTOL (Interactive Tree of Life)](http://itol.embl.de/), [urllib2_file by Fabien Seisen](https://github.com/seisen/urllib2_file)
+With Complements to: [iTOL (Interactive Tree of Life)](http://itol.embl.de/), [urllib2\_file by Fabien Seisen](https://github.com/seisen/urllib2_file)
 
 This iTOL API is meant to link between local programs written in Python and the iTOL website.  Itol.py can be used to upload trees and datasets from a Python program or command line onto iTOL for processing and viewing.  ItolExport.py can export (download) trees from iTOL to the local computer for viewing.  An active internet connection to the [iTOL website](http://itol.embl.de/) is required.
   
 Files Required:  
-Itol.py: Overall handling of parameters, datasets, tree file, processing of trees through calls to dataset.py, itolFile.py, server.py, urllib2_file.py  
+Itol.py: Overall handling of parameters, datasets, tree file, processing of trees through calls to Comm and ItolExport  
 ItolExport.py: Overall handling of parameters for exporting/downloading tree visualizations from itol  
 Comm.py: Handles communication to itol website and stores returned data  
 urllib2\_file.py: Helps itol.py upload tree files  
@@ -47,12 +47,12 @@ Create a variable (e.g. "itol\_uploader") and set it to an instance of itol.py (
 To set the tree, use "itol\_uploader.add\_variable('treeFile','/path/to/file')" 
 
 4.  Set Any Additional Parameters (Optional)  
-To set parameters one by one, call "itol\_uploader.add_variable(var\_name, var\_value)" as many times as needed
+To set parameters one by one, call "itol\_uploader.add\_variable(var\_name, var\_value)" as many times as needed
 Dataset variables can also be set with dataset# prefixing the variable name using add\_variable()
 The list of accepted variable names and allowed values is found at http://itol.embl.de/help/batch\_help.shtml.  
 
 5.  Upload the tree  
-Call itol_uploader.upload()  
+Call itol\_uploader.upload()  
 The returned value will be False if iTOL got an error, or the tree id if the upload was good
 
 6.  Get the iTOL output:  
@@ -60,11 +60,12 @@ If the returned value of the previous step was True,
 Call "itol\_uploader.comm.upload\_output" to get the raw return statement of iTOL AND/OR  
 Call "itol\_uploader.comm.tree\_id" to get the tree ID (string) created by iTOL for your upload AND/OR  
 Call "itol\_uploader.get\_webpage()" to get the web page url at the iTOL website to view the uploaded tree AND/OR  
-Call "itol\_uploader.get_itol\_export()" to get an instance of ItolExport in order to download your uploaded tree in different formats
+Call "itol\_uploader.get\_itol\_export()" to get an instance of ItolExport in order to download your uploaded tree in different formats
 
 An example for using the Python iTOL API can found in example.py
 
-##DOWNLOADING TREES FROM ITOL (ITOLEXPORT.PY)##
+DOWNLOADING TREES FROM ITOL (ITOLEXPORT.PY)
+---------------------------------------------
 ###RUNNING FROM COMMAND LINE
 (If you would like to set any parameters other than the tree id, 
 location to save the file, file format, and whether to display datasets, 
@@ -90,7 +91,7 @@ Call "itol\_exporter = ItolExport.ItolExport()"
 Call "itol\_exporter.add\_export\_param\_value('tree',tree\_id)" where tree\_id is a string of the tree id on iTOL
 
 4.  Add an output format  
-Call "itol\_exporter.add\_export_param\_value('format',format)" where format represents the format to export.  
+Call "itol\_exporter.add\_export\_param\_value('format',format)" where format represents the format to export.  
 Allowed formats are png, svg, eps, ps, pdf, nexus, newick
 
 5.  Add any other parameters (Optional)  
@@ -98,7 +99,7 @@ Call "itol\_exporter.add\_export\_param\_value(param\_key,param\_value)" where p
 The allowed paramKeys and their values can be found at http://itol.embl.de/help/batch\_help.shtml.
 
 6.  Export  
-Call "itol\_exporter.export(file\_location)" where file_location is the path to the location to write the export to.  
+Call "itol\_exporter.export(file\_location)" where file\_location is the path to the location to write the export to.  
 If a file is already in that location, it will be overwritten.  This step may take a while depending on how big of a tree you are exporting.  
 
 
