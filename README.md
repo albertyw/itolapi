@@ -28,7 +28,7 @@ To run Python from the command line, a newick tree must be saved to a file that 
 
 ####Example Output For A Good File:
 
-"http://itol.embl.de/external.cgi?tree=18793532558412678134820&restore\_saved=1"
+"http://itol.embl.de/external.cgi?tree=18793532558412678134820&restore_saved=1"
 
 
 ###RUNNING FROM A PYTHON PROGRAM
@@ -49,7 +49,7 @@ To set the tree, use "itol\_uploader.add\_variable('treeFile','/path/to/file')"
 4.  Set Any Additional Parameters (Optional)  
 To set parameters one by one, call "itol\_uploader.add\_variable(var\_name, var\_value)" as many times as needed
 Dataset variables can also be set with dataset# prefixing the variable name using add\_variable()
-The list of accepted variable names and allowed values is found at http://itol.embl.de/help/batch\_help.shtml.  
+The list of accepted variable names and allowed values is found at http://itol.embl.de/help/batch_help.shtml.  
 
 5.  Upload the tree  
 Call itol\_uploader.upload()  
@@ -96,7 +96,7 @@ Allowed formats are png, svg, eps, ps, pdf, nexus, newick
 
 5.  Add any other parameters (Optional)  
 Call "itol\_exporter.add\_export\_param\_value(param\_key,param\_value)" where param\_key and param\_value are the name of a parameter name and value.  
-The allowed paramKeys and their values can be found at http://itol.embl.de/help/batch\_help.shtml.
+The allowed paramKeys and their values can be found at http://itol.embl.de/help/batch_help.shtml.
 
 6.  Export  
 Call "itol\_exporter.export(file\_location)" where file\_location is the path to the location to write the export to.  
