@@ -105,3 +105,6 @@ If a file is already in that location, it will be overwritten.  This step may ta
 
 
 Send e-mails to Albert Wang (the repo owner) for questions and comments
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/albertyw/itol-api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
