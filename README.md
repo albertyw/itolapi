@@ -133,6 +133,3 @@ take a while depending on how big of a tree you are exporting.
 
 Log issues on [Github](https://github.com/albertyw/itol-api/issues) or
 send e-mails to Albert Wang for questions and comments
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/albertyw/itol-api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
