@@ -1,9 +1,6 @@
 """
 This file is for communication between this API and iTOL servers
 This also processes and stores information returned from the server
-See the README.txt for details
-@author: Albert Wang (albertyw@mit.edu)
-@date: December, 2010
 """
 import urllib2
 import urllib2_file

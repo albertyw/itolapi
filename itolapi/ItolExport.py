@@ -1,6 +1,5 @@
 """
 This is the main file for exporting of trees created by iTOL
-See the README.txt for details
 """
 import sys
 
@@ -75,7 +74,7 @@ def print_help():
     print 'Read the README and itolexport.py source code for information about \
     more powerful iTOL exporting.'
     print ''
-    print 'Report bugs to <albertyw@mit.edu>'
+    print 'Report bugs to http://github.com/albertyw/itolapi'
 
 # Run from command line
 if __name__ == "__main__":

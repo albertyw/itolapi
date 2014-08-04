@@ -1,9 +1,6 @@
 """
 This file deliberately tries to create a fatal error to see how the API would
 react
-
-@author: Albert Wang (albertyw@mit.edu)
-@date: March 14, 2011
 """
 
 import os

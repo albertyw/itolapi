@@ -1,6 +1,5 @@
 """
 This is the main file for the iTOL API
-See the README.txt for details
 """
 import sys
 import os
@@ -114,7 +113,7 @@ def print_help():
     print 'Read the README.txt and Itol.py source code for \
     information about more powerful iTOL calls.'
     print ''
-    print 'Report bugs to <albertyw@mit.edu>'
+    print 'Report bugs on http://github.com/albertyw/itolapi/'
 
 
 if __name__ == "__main__":

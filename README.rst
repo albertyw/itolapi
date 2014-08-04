@@ -18,18 +18,7 @@ the local computer for viewing. An active internet connection to the
 Installation
 ------------
 
-In order to use the iTOL Python API, you will need to install the
-``urllib2_file`` python library. If you have pip installed, you only
-need to run ``pip install urllib2_file``.
-
-Files Required:
-
--  ``Itol.py``: Overall handling of parameters, datasets, tree file,
-   processing of trees through calls to Comm and ItolExport
--  ``ItolExport.py``: Overall handling of parameters for
-   exporting/downloading tree visualizations from itol
--  ``Comm.py``: Handles communication to itol website and stores
-   returned data
+``pip install itolapi``
 
 Uploading Trees To iTOL (itol.py)
 ---------------------------------

@@ -1,9 +1,6 @@
 """
 This file tests basic uploading with a treeFile, colorDefinitionFile, and a
 data1File.  It also includes some non-fatal warnings.
-
-@author: Albert Wang (albertyw@mit.edu)
-@date: March 14, 2011
 """
 
 import os
