@@ -1,9 +1,6 @@
 """
 This file is for communication between this API and iTOL servers
 This also processes and stores information returned from the server
-See the README.txt for details
-@author: Albert Wang (albertyw@mit.edu)
-@date: December, 2010
 """
 import urllib2
 import urllib2_file
@@ -24,7 +21,7 @@ class Comm:
         self.export_output = ''
         self.tree_id = ''
         self.warnings = []
-    
+
     def upload_tree(self, params):
         """
         Submit the File to Itol using api at self.upload_url
@@ -36,7 +33,7 @@ class Comm:
         self.upload_output = data
         good_upload = self.parse_upload()
         return good_upload
-    
+
     def parse_upload(self):
         """
         Parse the raw returned output for uploading to iTOL
@@ -53,7 +50,7 @@ class Comm:
         self.warnings = self.upload_output[0:].strip().split("\n")
         self.tree_id = self.upload_output[tree_id_start_pos:].strip()
         return True
-    
+
     def export_image(self, params):
         """
         Submit an export request to Itol using api at self.export_url
@@ -63,4 +60,4 @@ class Comm:
         self.export_output = url_handle.read()
         url_handle.close()
         return self.export_output
-    
+

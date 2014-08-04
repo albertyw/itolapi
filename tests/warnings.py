@@ -1,9 +1,6 @@
 """
-This file tests basic uploading with a treeFile, colorDefinitionFile, and a 
-data1File.  It also includes some non-fatal warnings.  
-
-@author: Albert Wang (albertyw@mit.edu)
-@date: March 14, 2011
+This file tests basic uploading with a treeFile, colorDefinitionFile, and a
+data1File.  It also includes some non-fatal warnings.
 """
 
 import os
@@ -12,7 +9,7 @@ import sys
 pathname = os.path.dirname(sys.argv[0])
 fullpath = os.path.abspath(pathname)
 parent_path = fullpath+"/../"
-sys.path.append(parent_path+'src/')
+sys.path.append(parent_path+'itolapi/')
 
 import Itol
 

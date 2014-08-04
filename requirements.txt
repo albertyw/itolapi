@@ -1,1 +1,1 @@
-urllib2_file
+urllib2-file==0.2.1
