@@ -131,5 +131,5 @@ take a while depending on how big of a tree you are exporting.
 
 
 
-Log issues on [Github](https://github.com/albertyw/itol-api/issues) or
+Log issues on [Github](https://github.com/albertyw/itolapi/issues) or
 send e-mails to Albert Wang for questions and comments
