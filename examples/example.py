@@ -9,7 +9,7 @@ import sys
 pathname = os.path.dirname(sys.argv[0])
 fullpath = os.path.abspath(pathname)
 parent_path = fullpath+"/../"
-sys.path.append(parent_path+'src/')
+sys.path.append(parent_path+'itolapi/')
 
 import Itol
 import ItolExport
