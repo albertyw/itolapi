@@ -4,8 +4,8 @@ See the README.txt for details
 """
 import sys
 import os
-import Comm
-import ItolExport
+
+from itolapi import Comm, ItolExport
 
 class Itol:
     """

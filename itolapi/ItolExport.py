@@ -2,8 +2,9 @@
 This is the main file for exporting of trees created by iTOL
 See the README.txt for details
 """
-import Comm
 import sys
+
+from itolapi import Comm
 
 class ItolExport:
     """
