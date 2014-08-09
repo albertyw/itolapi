@@ -1,6 +1,7 @@
 """
 This is the main file for the iTOL API
 """
+import argparse
 import sys
 import os
 
@@ -96,37 +97,14 @@ class Itol:
             del self.variables[variable_name]
 
 
-def print_help():
-    """
-    This just prints help information for people calling this script
-    from console
-    """
-    print 'Usage: python itol.py TREEFILE'
-    print '  or:  python itol.py -h'
-    print 'TREEFILE is the path to the tree file to be uploaded to iTOL'
-    print 'Calling Itol.py with an acceptable tree file \
-    will return a URL to access the tree'
-    print ''
-    print '  -h    Display this help message'
-    print ''
-    print 'Use ItolExport.py to export uploaded trees from iTOL'
-    print 'Read the README.txt and Itol.py source code for \
-    information about more powerful iTOL calls.'
-    print ''
-    print 'Report bugs on http://github.com/albertyw/itolapi/'
-
-
 if __name__ == "__main__":
-    if len(sys.argv) == 1:
-        print_help()
-        sys.exit()
-    if sys.argv[1] == '-h':
-        print_help()
-        sys.exit()
-    try:
-        itol_upload = Itol()
-        itol_upload.add_variable('treeFile', sys.argv[1])
-        itol_upload.upload()
-        print itol_upload.get_webpage()
-    except:
-        print_help()
+    parser = argparse.ArgumentParser(description="iTOL Uploader",
+        epilog="Report bugs at https://github.com/albertyw/itolapi/")
+    parser.add_argument('tree_file', help="path to the tree file to be uploaded to iTOL")
+    args = parser.parse_args()
+    tree_file = args.tree_file
+
+    itol_upload = Itol()
+    itol_upload.add_variable('treeFile', tree_file)
+    itol_upload.upload()
+    print itol_upload.get_webpage()
