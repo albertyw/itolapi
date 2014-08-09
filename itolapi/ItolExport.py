@@ -1,11 +1,13 @@
 """
 This is the main file for exporting of trees created by iTOL
 """
+import argparse
 import sys
 
 from itolapi import Comm
 
 class ItolExport:
+    EXPORT_FORMATS = ['png', 'svg', 'eps', 'ps', 'pdf', 'nexus', 'newick']
     """
     Instantiate the itolexport class with empty params and empty server
     """
@@ -52,65 +54,25 @@ class ItolExport:
         file_handle.close()
 
 
-# Print help info to the command line
-def print_help():
-    """
-    This prints some help info to the command line
-    """
-    print 'Usage: python itolexport.py TREEID FILELOCATION FORMAT [-r] [-d]'
-    print '  or:  python itolexport.py -h'
-    print 'TREEID is the itol id of the tree you would like to export'
-    print 'FILELOCATION is where you would like the exported tree to be \
-    saved to (any file at FILELOCATION will be OVERWRITTEN)'
-    print 'FORMAT is the format/file type of the export; accepted values are: \
-    png, svg, eps, ps, pdf, nexus, newick'
-    print 'Calling itolexport.py will write the exported tree to filelocation'
-    print ''
-    print '  -h   Display this help message'
-    print '  -r   Verbose Output'
-    print '  -d   Display Datasets'
-    print ''
-    print 'Use itol.py to upload trees using python to the iTOL website'
-    print 'Read the README and itolexport.py source code for information about \
-    more powerful iTOL exporting.'
-    print ''
-    print 'Report bugs to http://github.com/albertyw/itolapi'
-
 # Run from command line
 if __name__ == "__main__":
-    if len(sys.argv) == 1:
-        print 'Use -h for help'
-        sys.exit(0)
-    arg_1 = sys.argv[1]
-    #Help argument
-    if arg_1 == '--help' or arg_1 == '-h':
-        print_help()
-        sys.exit(0)
-    #Single argument (not enough)
-    if len(sys.argv) == 2 or len(sys.argv) == 3:
-        print 'Use -h for help'
-        sys.exit(0)
+    parser = argparse.ArgumentParser(description="iTOL Downloader",
+        epilog="Report bugs at https://github.com/albertyw/itolapi/")
+    parser.add_argument('tree_id', help="iTOL ID of the tree you are exporting", type=int)
+    parser.add_argument('file_location', help="File path to write exported tree to")
+    parser.add_argument('format', help="Exported data format", choices=ItolExport.EXPORT_FORMATS)
+    parser.add_argument('-d', '--dataset', help="Show datasets")
+    parser.add_argument('-v', '--verbose', help='Verbose')
+    args = parser.parse_args()
 
-    #Check Verbosity and viewDatasets
-    verbose = False
-    view_datasets = False
-    if '-r' in sys.argv:
-        verbose = True
-    if '-d' in sys.argv:
-        view_datasets = True
-
-    #Three expected arguments
-    tree_id = sys.argv[1]
-    file_location = sys.argv[2]
-    tree_format = sys.argv[3]
     itol_exporter = ItolExport()
-    itol_exporter.set_export_param_value('tree', tree_id)
-    itol_exporter.set_export_param_value('format', tree_format)
-    if view_datasets == True:
+    itol_exporter.set_export_param_value('tree', str(args.tree_id))
+    itol_exporter.set_export_param_value('format', args.format)
+    if args.dataset == True:
         itol_exporter.set_export_param_value('datasetList', \
             'dataset1,dataset2,dataset3,dataset4,dataset5,\
             dataset6,dataset7,dataset8,dataset9,dataset10')
     print 'Exporting tree from server....'
-    itol_exporter.export(file_location)
-    print 'Exported to ', file_location
+    itol_exporter.export(args.file_location)
+    print 'Exported to ', args.file_location
     sys.exit(0)
