@@ -19,4 +19,13 @@ setup(name='itolapi',
           'urllib2_file==0.2.1',
       ],
       scripts=['itolapi/Itol.py', 'itolapi/ItolExport.py'],
+      classifiers=[
+          'Development Status :: 5 - Production/Stable',
+          'Environment :: Console',
+          'Intended Audience :: Developers',
+          'Intended Audience :: Science/Research',
+          'License :: OSI Approved :: MIT License',
+          'Natural Language :: English',
+          'Topic :: Scientific/Engineering :: Bio-Informatics',
+      ],
 )
