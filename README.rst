@@ -13,6 +13,10 @@ iTOL Python API
     :target: https://pypi.python.org/pypi/itolapi/
     :alt: License
 
+.. image:: https://codeclimate.com/github/albertyw/itolapi/badges/gpa.svg
+    :target: https://codeclimate.com/github/albertyw/itolapi
+    :alt: CodeClimate
+
 Python API for the Interactive Tree of Life (iTOL)
 
 Created by Albert Wang (albertyw at mit.edu)
