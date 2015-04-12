@@ -26,6 +26,7 @@ setup(name='itolapi',
           'Intended Audience :: Science/Research',
           'License :: OSI Approved :: MIT License',
           'Natural Language :: English',
+          'Programming Language :: Python :: 2 :: Only',
           'Topic :: Scientific/Engineering :: Bio-Informatics',
       ],
 )
