@@ -2,8 +2,7 @@
 This file is for communication between this API and iTOL servers
 This also processes and stores information returned from the server
 """
-import urllib2
-import urllib2_file
+import requests
 
 
 class Comm:
@@ -22,14 +21,26 @@ class Comm:
         self.tree_id = ''
         self.warnings = []
 
+    @staticmethod
+    def pull_out_files(params):
+        """
+        Pull out file objects so they can be fed into requests separately
+        """
+        files = {}
+        for k,v in params.items():
+            if isinstance(v, file):
+                files[k] = v
+                del params[k]
+        return params, files
+
     def upload_tree(self, params):
         """
         Submit the File to Itol using api at self.upload_url
         params is the dictionary of variables that will be uploaded
         """
-        url_handle = urllib2.urlopen(self.upload_url, params)
-        data = url_handle.read()
-        url_handle.close()
+        params, files = Comm.pull_out_files(params)
+        response = requests.post(self.upload_url, data=params, files=files)
+        data = response.text
         self.upload_output = data
         good_upload = self.parse_upload()
         return good_upload
