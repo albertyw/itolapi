@@ -16,7 +16,7 @@ setup(name='itolapi',
       license='MIT',
       packages=['itolapi'],
       install_requires=[
-          'urllib2_file==0.2.1',
+          'requests>=2.0, <3.0',
       ],
       scripts=['itolapi/Itol.py', 'itolapi/ItolExport.py'],
       classifiers=[

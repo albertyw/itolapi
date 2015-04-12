@@ -21,8 +21,7 @@ Python API for the Interactive Tree of Life (iTOL)
 
 Created by Albert Wang (albertyw at mit.edu)
 
-With Complements to: `iTOL (Interactive Tree of Life)`_, `urllib2\_file
-by Fabien Seisen`_
+With Complements to: `iTOL (Interactive Tree of Life)`_, `Python requests package`.
 
 This iTOL API allows local software to upload trees to iTOL using ``Itol.py``
 and export uploaded trees using ``ItolExport.py`` using direct Python
@@ -118,8 +117,7 @@ Send bugs and comments as issues on the  `Github`_ repository.
 
 
 .. _iTOL (Interactive Tree of Life): http://itol.embl.de/
-.. _urllib2\_file by Fabien Seisen: https://github.com/seisen/urllib2_file
 .. _iTOL website: http://itol.embl.de/
 .. _iTOL options: http://itol.embl.de/help/batch_help.shtml
 .. _the iTOL API page: http://itol.embl.de/help/batch_help.shtml
-.. _Github: https://github.com/albertyw/itolapi/issues
+.. _Github: https://github.com/albertyw/itolapi/
