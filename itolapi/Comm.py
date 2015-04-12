@@ -67,8 +67,8 @@ class Comm:
         Submit an export request to Itol using api at self.export_url
         @return: true if connection was established to server
         """
-        url_handle = urllib2.urlopen(self.export_url, params)
-        self.export_output = url_handle.read()
-        url_handle.close()
+        params, files = Comm.pull_out_files(params)
+        response = requests.post(self.export_url, data=params, files=files)
+        self.export_output = response.text
         return self.export_output
 
