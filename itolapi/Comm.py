@@ -26,12 +26,14 @@ class Comm:
         """
         Pull out file objects so they can be fed into requests separately
         """
+        new_params = {}
         files = {}
         for k,v in params.items():
             if isinstance(v, file):
                 files[k] = v
-                del params[k]
-        return params, files
+            else:
+                new_params[k] = v
+        return new_params, files
 
     def upload_tree(self, params):
         """

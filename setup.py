@@ -19,6 +19,8 @@ setup(name='itolapi',
           'requests>=2.0, <3.0',
       ],
       scripts=['itolapi/Itol.py', 'itolapi/ItolExport.py'],
+      test_suite="tests",
+      tests_require=[],
       classifiers=[
           'Development Status :: 5 - Production/Stable',
           'Environment :: Console',
