@@ -8,10 +8,10 @@ import sys
 
 pathname = os.path.dirname(sys.argv[0])
 fullpath = os.path.abspath(pathname)
-parent_path = fullpath+"/../"
-sys.path.append(parent_path+'itolapi/')
+parent_path = fullpath+"/../../"
+sys.path.append(parent_path)
 
-import Itol
+from itolapi import Itol
 
 parse_fn = 'huge.matrix.tree.parse'
 color_fn = 'huge.matrix.tree.parse.color'
