@@ -22,6 +22,7 @@ class PullOutFilesTest(unittest.TestCase):
         self.assertTrue('asdf' in params)
         self.assertTrue('zxcv' in params)
 
+
 class UploadTreeTest(unittest.TestCase):
     def setUp(self):
         self.comm = Comm.Comm()
@@ -45,3 +46,42 @@ class UploadTreeTest(unittest.TestCase):
         self.assertEqual(output, 'qwer')
 
 
+class ParseUploadTest(unittest.TestCase):
+    def setUp(self):
+        self.comm = Comm.Comm()
+
+    def test_successful(self):
+        self.comm.upload_output = 'SUCCESS 1234'
+        status = self.comm.parse_upload()
+        self.assertTrue(status)
+        self.assertEqual(self.comm.warnings, [])
+        self.assertEqual(self.comm.tree_id, '1234')
+
+    def test_successful_warnings(self):
+        self.comm.upload_output = "Warning 1\nWarning 2\nSUCCESS 1234"
+        status = self.comm.parse_upload()
+        self.assertTrue(status)
+        self.assertEqual(self.comm.warnings, ['Warning 1', 'Warning 2'])
+        self.assertEqual(self.comm.tree_id, '1234')
+
+    def test_fatal(self):
+        self.comm.upload_output = "ERR 1234"
+        status = self.comm.parse_upload()
+        self.assertFalse(status)
+        self.assertEqual(self.comm.warnings, ["ERR 1234"])
+        self.assertEqual(self.comm.tree_id, '')
+
+
+class ExportImageTest(unittest.TestCase):
+    def setUp(self):
+        self.comm = Comm.Comm()
+        self.params = {'tree_id': '1234'}
+        self.files = {}
+
+    @patch('itolapi.Comm.Comm.pull_out_files')
+    @patch('itolapi.Comm.requests')
+    def test_export_image(self, mock_requests, mock_pull):
+        mock_pull.return_value = (self.params, self.files)
+        mock_requests.post().text = 'asdf'
+        output = self.comm.export_image(self.params)
+        self.assertEqual(output, 'asdf')
