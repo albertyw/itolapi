@@ -26,12 +26,14 @@ class Comm:
         """
         Pull out file objects so they can be fed into requests separately
         """
+        new_params = {}
         files = {}
         for k,v in params.items():
             if isinstance(v, file):
                 files[k] = v
-                del params[k]
-        return params, files
+            else:
+                new_params[k] = v
+        return new_params, files
 
     def upload_tree(self, params):
         """
@@ -51,15 +53,12 @@ class Comm:
         The output is read from self.upload_output
         @return: True if the tree is uploaded successfully or successfully with warnings; False if error occured
         """
-        if self.upload_output.find('SUCCESS') != -1:
-            # Success, possibly with warnings
-            tree_id_start_pos = self.upload_output.rfind('SUCCESS')+9
-        else:
+        if self.upload_output.find('SUCCESS') == -1:
             # Fatal Error
             self.warnings = [self.upload_output]
             return False
-        self.warnings = self.upload_output[0:].strip().split("\n")
-        self.tree_id = self.upload_output[tree_id_start_pos:].strip()
+        self.warnings = self.upload_output.strip().split("\n")[0:-1]
+        self.tree_id = self.upload_output.strip().split("\n")[-1].split()[1]
         return True
 
     def export_image(self, params):
