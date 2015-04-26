@@ -1,11 +1,19 @@
 """
 This is the main file for the iTOL API
 """
+from __future__ import unicode_literals
+
 import argparse
 import sys
 import os
 
 from itolapi import Comm, ItolExport
+
+
+try:
+    basestring
+except NameError:
+    basestring = str
 
 class Itol:
     """
@@ -18,7 +26,6 @@ class Itol:
         self.variables = dict()
         self.comm = Comm.Comm()
 
-
     def add_variable(self, variable_name, variable_value):
         """
         Add a variable and its value to this upload.  This function includes
@@ -26,9 +33,9 @@ class Itol:
         modifying the variables dictionary
         """
         # Variable checking
-        if not isinstance(variable_name, str):
+        if not isinstance(variable_name, basestring):
             raise TypeError('variable name is not a string')
-        if not isinstance(variable_value, str):
+        if not isinstance(variable_value, basestring):
             raise TypeError('variable value should be a string')
         if self.is_file(variable_name):
             if not os.path.isfile(variable_value):
@@ -67,7 +74,7 @@ class Itol:
         Get the web page where you can download the Itol tree
         """
         webpage = "http://itol.embl.de/external.cgi?tree="+\
-            str(self.comm.tree_id)+"&restore_saved=1"
+            bytes(self.comm.tree_id)+"&restore_saved=1"
         return webpage
 
     def get_itol_export(self):
@@ -85,15 +92,15 @@ class Itol:
         """
         for variable_name, variable_value in self.variables.items():
             if isinstance(variable_value, file):
-                print variable_name+': '+variable_value.name
+                print(variable_name+': '+variable_value.name)
             else:
-                print variable_name+': '+variable_value
+                print(variable_name+': '+variable_value)
 
     def delete_variable(self, variable_name):
         """
         Remove a variable from the dictionary of set variables
         """
-        if self.variables.has_key(variable_name):
+        if variable_name in self.variables:
             del self.variables[variable_name]
 
 
@@ -107,4 +114,4 @@ if __name__ == "__main__":
     itol_upload = Itol()
     itol_upload.add_variable('treeFile', tree_file)
     itol_upload.upload()
-    print itol_upload.get_webpage()
+    print(itol_upload.get_webpage())

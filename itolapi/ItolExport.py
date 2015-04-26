@@ -1,6 +1,8 @@
 """
 This is the main file for exporting of trees created by iTOL
 """
+from __future__ import unicode_literals
+
 import argparse
 import sys
 
@@ -72,7 +74,7 @@ if __name__ == "__main__":
         itol_exporter.set_export_param_value('datasetList', \
             'dataset1,dataset2,dataset3,dataset4,dataset5,\
             dataset6,dataset7,dataset8,dataset9,dataset10')
-    print 'Exporting tree from server....'
+    print('Exporting tree from server....')
     itol_exporter.export(args.file_location)
-    print 'Exported to ', args.file_location
+    print('Exported to ', args.file_location)
     sys.exit(0)

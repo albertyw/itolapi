@@ -2,6 +2,8 @@
 This file is for communication between this API and iTOL servers
 This also processes and stores information returned from the server
 """
+from __future__ import unicode_literals
+
 import requests
 
 
@@ -29,7 +31,7 @@ class Comm:
         new_params = {}
         files = {}
         for k,v in params.items():
-            if isinstance(v, file):
+            if hasattr(v, 'read'):
                 files[k] = v
             else:
                 new_params[k] = v

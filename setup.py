@@ -21,7 +21,8 @@ setup(name='itolapi',
       scripts=['itolapi/Itol.py', 'itolapi/ItolExport.py'],
       test_suite="tests",
       tests_require=[
-          'mock>=1.0.1'
+          'mock>=1.0.1',
+          'tox',
       ],
       classifiers=[
           'Development Status :: 5 - Production/Stable',
@@ -30,7 +31,10 @@ setup(name='itolapi',
           'Intended Audience :: Science/Research',
           'License :: OSI Approved :: MIT License',
           'Natural Language :: English',
-          'Programming Language :: Python :: 2 :: Only',
+          'Programming Language :: Python',
+          'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3',
+          'Programming Language :: Python :: 3.4',
           'Topic :: Scientific/Engineering :: Bio-Informatics',
       ],
 )
