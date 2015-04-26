@@ -1,6 +1,8 @@
 """
 This is the main file for exporting of trees created by iTOL
 """
+from __future__ import unicode_literals
+
 import argparse
 import sys
 
