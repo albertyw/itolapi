@@ -21,7 +21,8 @@ setup(name='itolapi',
       scripts=['itolapi/Itol.py', 'itolapi/ItolExport.py'],
       test_suite="tests",
       tests_require=[
-          'mock>=1.0.1'
+          'mock>=1.0.1',
+          'tox',
       ],
       classifiers=[
           'Development Status :: 5 - Production/Stable',
