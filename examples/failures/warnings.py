@@ -34,6 +34,6 @@ itol_o.add_variable('dataset1PieRadiusMin','20')
 itol_o.add_variable('dataset1BarSizeMax','20')
 itol_o.print_variables()
 good_upload = itol_o.upload()
-print 'Tree Web Page URL:\n'+itol_o.get_webpage() + '\n'
-print 'Warnings:'
-print itol_o.comm.warnings
+print('Tree Web Page URL:\n'+itol_o.get_webpage() + '\n')
+print('Warnings:')
+print(itol_o.comm.warnings)

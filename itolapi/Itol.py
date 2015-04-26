@@ -85,9 +85,9 @@ class Itol:
         """
         for variable_name, variable_value in self.variables.items():
             if isinstance(variable_value, file):
-                print variable_name+': '+variable_value.name
+                print(variable_name+': '+variable_value.name)
             else:
-                print variable_name+': '+variable_value
+                print(variable_name+': '+variable_value)
 
     def delete_variable(self, variable_name):
         """
@@ -107,4 +107,4 @@ if __name__ == "__main__":
     itol_upload = Itol()
     itol_upload.add_variable('treeFile', tree_file)
     itol_upload.upload()
-    print itol_upload.get_webpage()
+    print(itol_upload.get_webpage())
