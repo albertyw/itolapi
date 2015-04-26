@@ -31,7 +31,7 @@ class Comm:
         new_params = {}
         files = {}
         for k,v in params.items():
-            if isinstance(v, file):
+            if hasattr(v, 'read'):
                 files[k] = v
             else:
                 new_params[k] = v

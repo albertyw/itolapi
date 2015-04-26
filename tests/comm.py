@@ -7,10 +7,16 @@ from itolapi import Comm
 
 
 class PullOutFilesTest(unittest.TestCase):
+    def setUp(self):
+        self.tempfile = tempfile.TemporaryFile()
+
+    def tearDown(self):
+        self.tempfile.close()
+
     def test_pull_out_files(self):
         params = {}
         params['asdf'] = 'qwer'
-        params['zxcv'] = tempfile.TemporaryFile()
+        params['zxcv'] = self.tempfile
         new_params, files = Comm.Comm.pull_out_files(params)
         self.assertEqual(new_params, {'asdf': 'qwer'})
         self.assertEqual(files, {'zxcv': params['zxcv']})
@@ -18,7 +24,7 @@ class PullOutFilesTest(unittest.TestCase):
     def test_doesnt_modify_params(self):
         params = {}
         params['asdf'] = 'qwer'
-        params['zxcv'] = tempfile.TemporaryFile()
+        params['zxcv'] = self.tempfile
         Comm.Comm.pull_out_files(params)
         self.assertTrue('asdf' in params)
         self.assertTrue('zxcv' in params)
@@ -26,11 +32,15 @@ class PullOutFilesTest(unittest.TestCase):
 
 class UploadTreeTest(unittest.TestCase):
     def setUp(self):
+        self.tempfile = tempfile.TemporaryFile()
         self.comm = Comm.Comm()
         self.params = {'asdf': 'qwer'}
-        self.files = {'zxcv': tempfile.TemporaryFile()}
+        self.files = {'zxcv': self.tempfile}
         self.all_params = self.params.copy()
         self.all_params.update(self.files)
+
+    def tearDown(self):
+        self.tempfile.close()
 
     @patch('itolapi.Comm.Comm.pull_out_files')
     @patch('itolapi.Comm.requests')

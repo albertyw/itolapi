@@ -100,7 +100,7 @@ class Itol:
         """
         Remove a variable from the dictionary of set variables
         """
-        if self.variables.has_key(variable_name):
+        if variable_name in self.variables:
             del self.variables[variable_name]
 
 
