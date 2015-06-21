@@ -70,6 +70,6 @@ class Comm:
         """
         params, files = Comm.pull_out_files(params)
         response = requests.post(self.export_url, data=params, files=files)
-        self.export_output = response.text
+        self.export_output = response.content
         return self.export_output
 

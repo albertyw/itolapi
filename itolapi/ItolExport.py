@@ -51,7 +51,7 @@ class ItolExport:
         @return: whether the export works
         """
         output = self.comm.export_image(self.params)
-        file_handle = open(export_location,'w')
+        file_handle = open(export_location,'wb')
         file_handle.write(output)
         file_handle.close()
 
