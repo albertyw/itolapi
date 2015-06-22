@@ -93,6 +93,6 @@ class ExportImageTest(unittest.TestCase):
     @patch('itolapi.Comm.requests')
     def test_export_image(self, mock_requests, mock_pull):
         mock_pull.return_value = (self.params, self.files)
-        mock_requests.post().text = 'asdf'
+        mock_requests.post().content = 'asdf'
         output = self.comm.export_image(self.params)
         self.assertEqual(output, 'asdf')

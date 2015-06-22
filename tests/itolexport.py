@@ -26,5 +26,5 @@ class ItolTest(unittest.TestCase):
 
     def test_export(self):
         with patch('itolapi.Comm.Comm.export_image') as mock_upload:
-            mock_upload.return_value = 'asdf'
+            mock_upload.return_value = b'asdf'
             self.export.export('/tmp/asdf.pdf')
