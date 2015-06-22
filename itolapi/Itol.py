@@ -4,6 +4,7 @@ This is the main file for the iTOL API
 from __future__ import unicode_literals
 
 import argparse
+import io
 import sys
 import os
 
@@ -91,7 +92,7 @@ class Itol:
         Print the variables that have been set so far
         """
         for variable_name, variable_value in self.variables.items():
-            if isinstance(variable_value, file):
+            if isinstance(variable_value, io.IOBase):
                 print(variable_name+': '+variable_value.name)
             else:
                 print(variable_name+': '+variable_value)
