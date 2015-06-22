@@ -121,6 +121,12 @@ To run tests:
     python setup.py install
     tox
 
+To update PyPI:
+
+::
+
+    python setup.py sdist upload
+
 .. _iTOL (Interactive Tree of Life): http://itol.embl.de/
 .. _iTOL website: http://itol.embl.de/
 .. _iTOL options: http://itol.embl.de/help/batch_help.shtml
