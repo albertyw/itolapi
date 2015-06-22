@@ -1,18 +1,6 @@
 iTOL Python API
 ===============
 
-.. image:: https://pypip.in/version/itolapi/badge.svg
-    :target: https://pypi.python.org/pypi/itolapi/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/status/itolapi/badge.svg
-    :target: https://pypi.python.org/pypi/itolapi/
-    :alt: Development Status
-
-.. image:: https://pypip.in/license/itolapi/badge.svg
-    :target: https://pypi.python.org/pypi/itolapi/
-    :alt: License
-
 .. image:: https://codeship.com/projects/d6470c00-c832-0132-4536-627bbcd2f5ed/status?branch=master
     :target: https://codeship.com/projects/75058
     :alt: Codeship
