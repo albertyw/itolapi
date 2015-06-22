@@ -125,10 +125,13 @@ Send bugs and comments as issues on the  `Github`_ repository.
 
 Development
 -----------
+To run tests:
+
 ::
 
-    pip install -r requirements.txt
-    python setup.py test
+    pip install tox
+    python setup.py install
+    tox
 
 .. _iTOL (Interactive Tree of Life): http://itol.embl.de/
 .. _iTOL website: http://itol.embl.de/
