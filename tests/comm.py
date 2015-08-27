@@ -52,7 +52,7 @@ class UploadTreeTest(unittest.TestCase):
         output = self.comm.upload_tree(self.all_params)
         mock_pull.assert_called_once_with(self.all_params)
         mock_requests.post.assert_called_with(self.comm.upload_url, data=self.params, files=self.files)
-        mock_parse.assert_called_once()
+        mock_parse.assert_called_once_with()
         self.assertEqual(self.comm.upload_output, 'asdf')
         self.assertEqual(output, 'qwer')
 
