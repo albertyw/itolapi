@@ -1,0 +1,10 @@
+---
+languages:
+  Python: true
+engines:
+  fixme:
+    enabled: true
+  pep8:
+    enabled: true
+  radon:
+    enabled: true
