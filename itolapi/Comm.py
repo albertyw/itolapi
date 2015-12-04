@@ -12,6 +12,7 @@ class Comm:
     This class handles communication between the API and the iTOL servers
     This also processes and stores information returned from the server
     """
+
     def __init__(self):
         """
         Initialize
@@ -30,7 +31,7 @@ class Comm:
         """
         new_params = {}
         files = {}
-        for k,v in params.items():
+        for k, v in params.items():
             if hasattr(v, 'read'):
                 files[k] = v
             else:
@@ -72,4 +73,3 @@ class Comm:
         response = requests.post(self.export_url, data=params, files=files)
         self.export_output = response.content
         return self.export_output
-

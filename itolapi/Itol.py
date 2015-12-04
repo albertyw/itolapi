@@ -16,10 +16,12 @@ try:
 except NameError:
     basestring = str
 
+
 class Itol:
     """
     This class handles the main itol functionality
     """
+
     def __init__(self):
         """
         Initialize a few required variables
@@ -40,8 +42,8 @@ class Itol:
             raise TypeError('variable value should be a string')
         if self.is_file(variable_name):
             if not os.path.isfile(variable_value):
-                raise IOError('variable name '+variable_name+\
-                    ' indicates value should be a file')
+                raise IOError('variable name ' + variable_name +
+                              ' indicates value should be a file')
             variable_value = open(variable_value, 'r')
         # Add the variable
         self.variables[variable_name] = variable_value
@@ -54,7 +56,7 @@ class Itol:
         This is determined by looking at whether "File" is a substring of
         variable_name; this assumes that variable_name is a string
         """
-        if variable_name.find('File')!=-1:
+        if variable_name.find('File') != -1:
             return True
         else:
             return False
@@ -74,8 +76,8 @@ class Itol:
         """
         Get the web page where you can download the Itol tree
         """
-        webpage = "http://itol.embl.de/external.cgi?tree="+\
-            str(self.comm.tree_id)+"&restore_saved=1"
+        webpage = "http://itol.embl.de/external.cgi?tree=" +\
+            str(self.comm.tree_id) + "&restore_saved=1"
         return webpage
 
     def get_itol_export(self):
@@ -93,9 +95,9 @@ class Itol:
         """
         for variable_name, variable_value in self.variables.items():
             if isinstance(variable_value, io.IOBase):
-                print(variable_name+': '+variable_value.name)
+                print(variable_name + ': ' + variable_value.name)
             else:
-                print(variable_name+': '+variable_value)
+                print(variable_name + ': ' + variable_value)
 
     def delete_variable(self, variable_name):
         """
@@ -107,8 +109,9 @@ class Itol:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="iTOL Uploader",
-        epilog="Report bugs at https://github.com/albertyw/itolapi/")
-    parser.add_argument('tree_file', help="path to the tree file to be uploaded to iTOL")
+                                     epilog="Report bugs at https://github.com/albertyw/itolapi/")
+    parser.add_argument(
+        'tree_file', help="path to the tree file to be uploaded to iTOL")
     args = parser.parse_args()
     tree_file = args.tree_file
 

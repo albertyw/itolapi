@@ -6,6 +6,7 @@ from itolapi import Itol
 
 
 class ItolTest(unittest.TestCase):
+
     def setUp(self):
         self.itol = Itol.Itol()
 
@@ -58,4 +59,4 @@ class ItolTest(unittest.TestCase):
         self.assertTrue('asdf' in self.itol.variables)
         self.itol.delete_variable('asdf')
         self.assertFalse('asdf' in self.itol.variables)
-        self.assertFalse('asdf' in self.itol.variables) # Idempotent
+        self.assertFalse('asdf' in self.itol.variables)  # Idempotent

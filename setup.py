@@ -37,4 +37,4 @@ setup(name='itolapi',
           'Programming Language :: Python :: 3.4',
           'Topic :: Scientific/Engineering :: Bio-Informatics',
       ],
-)
+      )

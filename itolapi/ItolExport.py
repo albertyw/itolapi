@@ -8,11 +8,13 @@ import sys
 
 from itolapi import Comm
 
+
 class ItolExport:
     EXPORT_FORMATS = ['png', 'svg', 'eps', 'ps', 'pdf', 'nexus', 'newick']
     """
     Instantiate the itolexport class with empty params and empty server
     """
+
     def __init__(self):
         """
         Instantiate class
@@ -20,7 +22,7 @@ class ItolExport:
         self.params = dict({})
         self.comm = Comm.Comm()
 
-    ###Setting Export Parameters
+    # Setting Export Parameters
     def add_export_param_dict(self, param_dict):
         """
         Add a dictionary of parameters to the parameters to be used when exporting
@@ -42,7 +44,7 @@ class ItolExport:
         """
         return self.params
 
-    ###Do Exporting
+    # Do Exporting
     def export(self, export_location):
         """
         Call the export process
@@ -51,7 +53,7 @@ class ItolExport:
         @return: whether the export works
         """
         output = self.comm.export_image(self.params)
-        file_handle = open(export_location,'wb')
+        file_handle = open(export_location, 'wb')
         file_handle.write(output)
         file_handle.close()
 
@@ -59,10 +61,13 @@ class ItolExport:
 # Run from command line
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="iTOL Downloader",
-        epilog="Report bugs at https://github.com/albertyw/itolapi/")
-    parser.add_argument('tree_id', help="iTOL ID of the tree you are exporting", type=int)
-    parser.add_argument('file_location', help="File path to write exported tree to")
-    parser.add_argument('format', help="Exported data format", choices=ItolExport.EXPORT_FORMATS)
+                                     epilog="Report bugs at https://github.com/albertyw/itolapi/")
+    parser.add_argument(
+        'tree_id', help="iTOL ID of the tree you are exporting", type=int)
+    parser.add_argument(
+        'file_location', help="File path to write exported tree to")
+    parser.add_argument('format', help="Exported data format",
+                        choices=ItolExport.EXPORT_FORMATS)
     parser.add_argument('-d', '--dataset', help="Show datasets")
     parser.add_argument('-v', '--verbose', help='Verbose')
     args = parser.parse_args()
@@ -71,8 +76,8 @@ if __name__ == "__main__":
     itol_exporter.set_export_param_value('tree', str(args.tree_id))
     itol_exporter.set_export_param_value('format', args.format)
     if args.dataset == True:
-        itol_exporter.set_export_param_value('datasetList', \
-            'dataset1,dataset2,dataset3,dataset4,dataset5,\
+        itol_exporter.set_export_param_value('datasetList',
+                                             'dataset1,dataset2,dataset3,dataset4,dataset5,\
             dataset6,dataset7,dataset8,dataset9,dataset10')
     print('Exporting tree from server....')
     itol_exporter.export(args.file_location)

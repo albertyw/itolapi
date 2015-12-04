@@ -6,6 +6,7 @@ from itolapi import ItolExport
 
 
 class ItolTest(unittest.TestCase):
+
     def setUp(self):
         self.export = ItolExport.ItolExport()
 

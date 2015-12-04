@@ -7,6 +7,7 @@ from itolapi import Comm
 
 
 class PullOutFilesTest(unittest.TestCase):
+
     def setUp(self):
         self.tempfile = tempfile.TemporaryFile()
 
@@ -31,6 +32,7 @@ class PullOutFilesTest(unittest.TestCase):
 
 
 class UploadTreeTest(unittest.TestCase):
+
     def setUp(self):
         self.tempfile = tempfile.TemporaryFile()
         self.comm = Comm.Comm()
@@ -51,13 +53,15 @@ class UploadTreeTest(unittest.TestCase):
         mock_parse.return_value = 'qwer'
         output = self.comm.upload_tree(self.all_params)
         mock_pull.assert_called_once_with(self.all_params)
-        mock_requests.post.assert_called_with(self.comm.upload_url, data=self.params, files=self.files)
+        mock_requests.post.assert_called_with(
+            self.comm.upload_url, data=self.params, files=self.files)
         mock_parse.assert_called_once_with()
         self.assertEqual(self.comm.upload_output, 'asdf')
         self.assertEqual(output, 'qwer')
 
 
 class ParseUploadTest(unittest.TestCase):
+
     def setUp(self):
         self.comm = Comm.Comm()
 
@@ -84,6 +88,7 @@ class ParseUploadTest(unittest.TestCase):
 
 
 class ExportImageTest(unittest.TestCase):
+
     def setUp(self):
         self.comm = Comm.Comm()
         self.params = {'tree_id': '1234'}
