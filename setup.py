@@ -23,6 +23,7 @@ setup(name='itolapi',
       tests_require=[
           'mock>=1.0.1',
           'tox',
+          'codecov',
       ],
       classifiers=[
           'Development Status :: 5 - Production/Stable',
