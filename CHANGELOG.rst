@@ -1,3 +1,10 @@
+1.3.0 February 14, 2016
+-----------------------
+
+- Fix upload urls for Itol
+- Add test coverage
+- Fix code quality checks
+
 1.2.2 February 2, 2016
 ----------------------
 

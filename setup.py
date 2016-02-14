@@ -7,7 +7,7 @@ finally:
     readme.close()
 
 setup(name='itolapi',
-      version='1.2.2',
+      version='1.3.0',
       description='API for interacting with itol.embl.de',
       long_description=long_description,
       url='http://github.com/albertyw/itolapi',
