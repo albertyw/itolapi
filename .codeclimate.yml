@@ -1,6 +1,4 @@
 ---
-languages:
-  Python: true
 engines:
   fixme:
     enabled: true
