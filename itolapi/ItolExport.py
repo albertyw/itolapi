@@ -75,7 +75,7 @@ if __name__ == "__main__":
     itol_exporter = ItolExport()
     itol_exporter.set_export_param_value('tree', str(args.tree_id))
     itol_exporter.set_export_param_value('format', args.format)
-    if args.dataset == True:
+    if args.dataset:
         itol_exporter.set_export_param_value('datasetList',
                                              'dataset1,dataset2,dataset3,dataset4,dataset5,\
             dataset6,dataset7,dataset8,dataset9,dataset10')

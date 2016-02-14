@@ -36,7 +36,7 @@ test.print_variables()
 print('')
 print('Uploading the tree.  This may take some time depending on how large the tree is and how much load there is on the itol server')
 good_upload = test.upload()
-if good_upload == False:
+if not good_upload:
     print('There was an error:' + test.comm.upload_output)
     sys.exit(1)
 
