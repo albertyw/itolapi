@@ -25,6 +25,10 @@ iTOL Python API
     :target: https://gemnasium.com/albertyw/itolapi
     :alt: Gemnasium
 
+.. image:: https://codecov.io/gh/albertyw/itolapi/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/albertyw/itolapi
+
+
 Python API for the Interactive Tree of Life (iTOL)
 
 Created by Albert Wang (albertyw at mit.edu)
