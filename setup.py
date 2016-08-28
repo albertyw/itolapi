@@ -24,6 +24,7 @@ setup(name='itolapi',
           'mock>=1.0.1',
           'tox',
           'codecov',
+          'codeclimate-test-reporter',
       ],
       classifiers=[
           'Development Status :: 5 - Production/Stable',
