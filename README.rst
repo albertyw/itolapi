@@ -2,6 +2,7 @@ iTOL Python API
 ===============
 
 |PyPI|
+|Python Version|
 |License|
 
 |Codeship|
@@ -134,6 +135,8 @@ To update PyPI:
 .. |PyPI| image:: https://img.shields.io/pypi/v/itolapi.svg
    :target: https://pypi.python.org/pypi/itolapi/
    :alt: Latest Version
+
+.. |Python Version| image:: https://img.shields.io/pypi/pyversions/itolapi.svg
 
 .. |License| image:: https://img.shields.io/pypi/l/itolapi.svg
    :target: https://pypi.python.org/pypi/itolapi/
