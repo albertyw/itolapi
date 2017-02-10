@@ -1,29 +1,14 @@
 iTOL Python API
 ===============
 
-.. image:: https://img.shields.io/pypi/v/itolapi.svg
-   :target: https://pypi.python.org/pypi/itolapi/
-   :alt: Latest Version
+|PyPI|
+|License|
 
-.. image:: https://img.shields.io/pypi/l/itolapi.svg
-   :target: https://pypi.python.org/pypi/itolapi/
-   :alt: License
+|Codeship|
+|CodeCov|
+|Code Climate|
+|Dependencies|
 
-
-.. image:: https://codeship.com/projects/d6470c00-c832-0132-4536-627bbcd2f5ed/status?branch=master
-    :target: https://codeship.com/projects/75058
-    :alt: Codeship
-
-.. image:: https://codecov.io/github/albertyw/itolapi/coverage.svg?branch=master
-    :target: https://codecov.io/github/albertyw/itolapi?branch=master
-
-.. image:: https://codeclimate.com/github/albertyw/itolapi/badges/gpa.svg
-    :target: https://codeclimate.com/github/albertyw/itolapi
-    :alt: CodeClimate
-
-.. image:: https://gemnasium.com/albertyw/itolapi.svg
-    :target: https://gemnasium.com/albertyw/itolapi
-    :alt: Gemnasium
 
 Python API for the Interactive Tree of Life (iTOL)
 
@@ -144,3 +129,28 @@ To update PyPI:
 .. _iTOL options: http://itol.embl.de/help/batch_help.shtml
 .. _the iTOL API page: http://itol.embl.de/help/batch_help.shtml
 .. _Github: https://github.com/albertyw/itolapi/
+
+
+.. |PyPI| image:: https://img.shields.io/pypi/v/itolapi.svg
+   :target: https://pypi.python.org/pypi/itolapi/
+   :alt: Latest Version
+
+.. |License| image:: https://img.shields.io/pypi/l/itolapi.svg
+   :target: https://pypi.python.org/pypi/itolapi/
+   :alt: License
+
+
+.. |Codeship| image:: https://codeship.com/projects/d6470c00-c832-0132-4536-627bbcd2f5ed/status?branch=master
+    :target: https://codeship.com/projects/75058
+    :alt: Codeship
+
+.. |CodeCov| image:: https://codecov.io/github/albertyw/itolapi/coverage.svg?branch=master
+    :target: https://codecov.io/github/albertyw/itolapi?branch=master
+
+.. |Code Climate| image:: https://codeclimate.com/github/albertyw/itolapi/badges/gpa.svg
+    :target: https://codeclimate.com/github/albertyw/itolapi
+    :alt: CodeClimate
+
+.. |Dependencies| image:: https://gemnasium.com/albertyw/itolapi.svg
+    :target: https://gemnasium.com/albertyw/itolapi
+    :alt: Gemnasium
