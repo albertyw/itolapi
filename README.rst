@@ -123,7 +123,9 @@ To update PyPI:
 
 ::
 
-    python setup.py sdist upload
+    pip install twine
+    python setup.py sdist bdist_wheel
+    twine upload dist/*
 
 .. _iTOL (Interactive Tree of Life): http://itol.embl.de/
 .. _iTOL website: http://itol.embl.de/
