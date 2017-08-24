@@ -1,3 +1,11 @@
+1.3.1 August 23, 2017
+---------------------
+
+- Basic support for itol2
+- README fixes
+- Dependency updates
+- Testing updates
+
 1.3.0 February 14, 2016
 -----------------------
 
