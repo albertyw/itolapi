@@ -13,7 +13,7 @@ iTOL Python API
 
 Python API for the Interactive Tree of Life (iTOL)
 
-Created by Albert Wang (albertyw at mit.edu)
+Created by Albert Wang (git at albertyw.com)
 
 With Complements to: `iTOL (Interactive Tree of Life)`_, `Python requests package`.
 
