@@ -156,6 +156,5 @@ To update PyPI:
     :target: https://codeclimate.com/github/albertyw/itolapi
     :alt: CodeClimate
 
-.. |Dependencies| image:: https://gemnasium.com/albertyw/itolapi.svg
-    :target: https://gemnasium.com/albertyw/itolapi
-    :alt: Gemnasium
+.. |Dependency Status| image:: https://pyup.io/repos/github/albertyw/itolapi/shield.svg
+   :target: https://pyup.io/repos/github/albertyw/itolapi/
