@@ -8,7 +8,7 @@ iTOL Python API
 |Codeship|
 |CodeCov|
 |Code Climate|
-|Dependencies|
+|Dependency Status|
 
 
 Python API for the Interactive Tree of Life (iTOL)
