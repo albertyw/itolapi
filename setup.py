@@ -1,16 +1,25 @@
-from setuptools import setup, find_packages
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-try:
-    readme = open("README.rst")
-    long_description = str(readme.read())
-finally:
-    readme.close()
+from setuptools import setup, find_packages
+from codecs import open
+from os import path
+
+# Get the long description from the README file
+here = path.abspath(path.dirname(__file__))
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
+
+about = {}
+with open(path.join(here, 'itolapi', '__version__.py')) as f:
+    exec(f.read(), about)
+
 
 setup(name='itolapi',
-      version='1.3.1',
+      version=about['__version__'],
       description='API for interacting with itol.embl.de',
       long_description=long_description,
-      url='http://github.com/albertyw/itolapi',
+      url='https://github.com/albertyw/itolapi',
       author='Albert Wang',
       author_email='git@albertyw.com',
       license='MIT',
@@ -43,4 +52,5 @@ setup(name='itolapi',
           'Programming Language :: Python :: 3.7',
           'Topic :: Scientific/Engineering :: Bio-Informatics',
       ],
+      keywords='tree life compbio biology bioinformatics',
       )
