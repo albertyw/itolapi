@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 try:
     readme = open("README.rst")
@@ -14,12 +14,12 @@ setup(name='itolapi',
       author='Albert Wang',
       author_email='git@albertyw.com',
       license='MIT',
-      packages=['itolapi'],
+      packages=find_packages(exclude=['tests']),
       install_requires=[
           'requests>=2.0, <3.0',
       ],
       scripts=['itolapi/Itol.py', 'itolapi/ItolExport.py'],
-      test_suite="tests",
+      test_suite="itolapi.tests",
       tests_require=[
           'mock>=2.0.0,<3.0.0',
           'tox>=2.7.0,<3.0.0',
