@@ -1,3 +1,9 @@
+2.0.0 July 16, 2018
+-------------------
+
+ - Switched to itol4
+ - Removed itol2 support
+
 1.3.2 July 15, 2018
 -------------------
 
