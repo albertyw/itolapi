@@ -115,8 +115,10 @@ To run tests:
 
 ::
 
-    pip install tox
     python setup.py install
+    pip install -r requirements-test.txt
+    pip install -r requirements-test-python3.txt
+    mypy itolapi
     tox
 
 To update PyPI:
