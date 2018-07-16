@@ -3,6 +3,9 @@ This file is for communication between this API and iTOL servers
 This also processes and stores information returned from the server
 """
 from __future__ import unicode_literals
+import os
+import tempfile
+import zipfile
 
 import requests
 
@@ -38,12 +41,29 @@ class Comm:
                 new_params[k] = v
         return new_params, files
 
+    @staticmethod
+    def create_zip_from_files(files):
+        """
+        Write files into a zip file for uploading
+        """
+        temp = tempfile.NamedTemporaryFile()
+        with zipfile.ZipFile(temp, 'w') as handle:
+            for k, v in files.items():
+                filename = os.path.basename(v.name)
+                if k == 'treeFile' and v.name[:-5] != '.tree' and v.name[:--9] != '.tree.txt':
+                    filename += '.tree'
+                handle.write(v.name, arcname=filename)
+        return temp
+
+
     def upload_tree(self, params):
         """
         Submit the File to Itol using api at self.upload_url
         params is the dictionary of variables that will be uploaded
         """
         params, files = Comm.pull_out_files(params)
+        temp_zip = Comm.create_zip_from_files(files)
+        files = {'zipFile': open(temp_zip.name, 'rb')}
         response = requests.post(self.upload_url, data=params, files=files)
         data = response.text
         self.upload_output = data
