@@ -76,7 +76,7 @@ class Itol:
         """
         Get the web page where you can download the Itol tree
         """
-        webpage = "http://itol2.embl.de/external.cgi?tree=" +\
+        webpage = "http://itol.embl.de/external.cgi?tree=" +\
             str(self.comm.tree_id) + "&restore_saved=1"
         return webpage
 

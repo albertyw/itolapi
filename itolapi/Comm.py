@@ -17,8 +17,8 @@ class Comm:
         """
         Initialize
         """
-        self.upload_url = 'http://itol2.embl.de/batch_uploader.cgi'
-        self.export_url = 'http://itol2.embl.de/batch_downloader.cgi'
+        self.upload_url = 'http://itol.embl.de/batch_uploader.cgi'
+        self.export_url = 'http://itol.embl.de/batch_downloader.cgi'
         self.upload_output = ''
         self.export_output = ''
         self.tree_id = ''

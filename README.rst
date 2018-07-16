@@ -39,7 +39,7 @@ you must call the Python iTOL API from within a Python program)
 ::
 
     $ Itol.py /path/to/example.tree
-    http://itol2.embl.de/external.cgi?tree=1234567890&restore_saved=1
+    http://itol.embl.de/external.cgi?tree=1234567890&restore_saved=1
 
 From Python
 ~~~~~~~~~~~
@@ -61,7 +61,7 @@ command line and allows access to all `iTOL options`_
     itol_uploader.comm.tree_id
     # 1234567890
     itol_uploader.get_webpage()
-    # http://itol2.embl.de/external.cgi?tree=1234567890&restore_saved=1
+    # http://itol.embl.de/external.cgi?tree=1234567890&restore_saved=1
     itol_uploader.get_itol_export()
     # <ItolExport.ItolExport instance at 0x207c5f0>
 
@@ -131,8 +131,8 @@ To update PyPI:
 
 .. _iTOL (Interactive Tree of Life): http://itol.embl.de/
 .. _iTOL website: http://itol.embl.de/
-.. _iTOL options: http://itol2.embl.de/help/batch_help.shtml
-.. _the iTOL API page: http://itol2.embl.de/help/batch_help.shtml
+.. _iTOL options: http://itol.embl.de/help.cgi#batch
+.. _the iTOL API page: http://itol.embl.de/help.cgi#batch
 .. _Github: https://github.com/albertyw/itolapi/
 
 
