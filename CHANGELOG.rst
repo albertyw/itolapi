@@ -1,3 +1,8 @@
+1.3.2 July 15, 2018
+-------------------
+
+ - Many internal changes to update packaging and testing
+
 1.3.1 August 23, 2017
 ---------------------
 
