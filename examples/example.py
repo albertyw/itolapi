@@ -1,6 +1,7 @@
 '''
 This is an example script for using itol.py
-To use itol.py, you essentially have to instantiate the object, set the tree, submit the file to itol, then use the returned data
+To use itol.py, you essentially have to instantiate the object, set the tree,
+submit the file to itol, then use the returned data
 '''
 
 import os
@@ -11,7 +12,7 @@ fullpath = os.path.abspath(pathname)
 parent_path = fullpath + "/../"
 sys.path.append(parent_path)
 
-from itolapi import Itol, ItolExport
+from itolapi import Itol, ItolExport  # NOQA
 
 print('Running example itol and itolexport script')
 print('')
@@ -34,7 +35,10 @@ test.add_variable('dataset1Type', 'multibar')
 test.print_variables()
 # Submit the tree
 print('')
-print('Uploading the tree.  This may take some time depending on how large the tree is and how much load there is on the itol server')
+print((
+    'Uploading the tree.  This may take some time depending on how large the '
+    'tree is and how much load there is on the itol server'
+))
 good_upload = test.upload()
 if not good_upload:
     print('There was an error:' + test.comm.upload_output)
@@ -59,7 +63,7 @@ itol_exporter.set_export_param_value('tree', '18793532031912684633930')
 itol_exporter.set_export_param_value('format', 'pdf')
 itol_exporter.set_export_param_value('datasetList', 'dataset1')
 # itol_exporter.export('example_pdf.pdf')
-#print('exported tree to ',export_location)
+# print('exported tree to ',export_location)
 
 # Export the tree above to pdf
 print('Exporting to pdf')

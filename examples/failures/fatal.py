@@ -11,7 +11,7 @@ fullpath = os.path.abspath(pathname)
 parent_path = fullpath + "/../../"
 sys.path.append(parent_path)
 
-from itolapi import Itol
+from itolapi import Itol  # NOQA
 
 parse_fn = 'huge.matrix.tree.parse'
 color_fn = 'huge.matrix.tree.parse.color'
