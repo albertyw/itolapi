@@ -26,6 +26,7 @@ setup(name='itolapi',
       packages=find_packages(exclude=['tests']),
       install_requires=[
           'requests>=2.0, <3.0',
+          'six>=1.11.0,<2.0',
       ],
       scripts=['itolapi/Itol.py', 'itolapi/ItolExport.py'],
       test_suite="itolapi.tests",

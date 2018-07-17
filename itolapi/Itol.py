@@ -8,13 +8,9 @@ import io
 import sys
 import os
 
+from six import string_types
+
 from itolapi import Comm, ItolExport
-
-
-try:
-    basestring
-except NameError:
-    basestring = str
 
 
 class Itol:
@@ -36,9 +32,9 @@ class Itol:
         modifying the variables dictionary
         """
         # Variable checking
-        if not isinstance(variable_name, basestring):
+        if not isinstance(variable_name, string_types):
             raise TypeError('variable name is not a string')
-        if not isinstance(variable_value, basestring):
+        if not isinstance(variable_value, string_types):
             raise TypeError('variable value should be a string')
         if self.is_file(variable_name):
             if not os.path.isfile(variable_value):
