@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from mock import MagicMock, patch
+from mock import patch
 import unittest
 
 from itolapi import ItolExport

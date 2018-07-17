@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from mock import MagicMock, patch
+from mock import patch
 import tempfile
 import unittest
 
@@ -53,7 +53,10 @@ class UploadTreeTest(unittest.TestCase):
         mock_parse.return_value = 'qwer'
         output = self.comm.upload_tree(self.all_params)
         mock_pull.assert_called_once_with(self.all_params)
-        self.assertEqual(mock_requests.post.call_args[0][0], self.comm.upload_url)
+        self.assertEqual(
+            mock_requests.post.call_args[0][0],
+            self.comm.upload_url
+        )
         self.assertEqual(mock_requests.post.call_args[1]['data'], self.params)
         self.assertTrue('zipFile' in mock_requests.post.call_args[1]['files'])
         mock_parse.assert_called_once_with()

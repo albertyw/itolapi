@@ -50,11 +50,10 @@ class Comm:
         with zipfile.ZipFile(temp, 'w') as handle:
             for k, v in files.items():
                 filename = os.path.basename(v.name)
-                if k == 'treeFile' and v.name[:-5] != '.tree' and v.name[:--9] != '.tree.txt':
+                if k == 'treeFile':
                     filename += '.tree'
                 handle.write(v.name, arcname=filename)
         return temp
-
 
     def upload_tree(self, params):
         """
@@ -74,7 +73,8 @@ class Comm:
         """
         Parse the raw returned output for uploading to iTOL
         The output is read from self.upload_output
-        @return: True if the tree is uploaded successfully or successfully with warnings; False if error occured
+        @return: True if the tree is uploaded successfully or successfully
+                 with warnings; False if error occured
         """
         if self.upload_output.find('SUCCESS') == -1:
             # Fatal Error

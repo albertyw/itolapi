@@ -5,7 +5,6 @@ from __future__ import unicode_literals
 
 import argparse
 import io
-import sys
 import os
 
 from six import string_types
@@ -78,7 +77,8 @@ class Itol:
 
     def get_itol_export(self):
         """
-        Returns an instance of ItolExport in preparation of exporting from the generated tree
+        Returns an instance of ItolExport in preparation of exporting from the
+        generated tree
         @return: instance of ItolExport
         """
         itol_exporter = ItolExport.ItolExport()
@@ -104,8 +104,10 @@ class Itol:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="iTOL Uploader",
-                                     epilog="Report bugs at https://github.com/albertyw/itolapi/")
+    parser = argparse.ArgumentParser(
+        description="iTOL Uploader",
+        epilog="Report bugs at https://github.com/albertyw/itolapi/"
+    )
     parser.add_argument(
         'tree_file', help="path to the tree file to be uploaded to iTOL")
     args = parser.parse_args()

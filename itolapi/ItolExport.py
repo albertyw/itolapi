@@ -25,7 +25,8 @@ class ItolExport:
     # Setting Export Parameters
     def add_export_param_dict(self, param_dict):
         """
-        Add a dictionary of parameters to the parameters to be used when exporting
+        Add a dictionary of parameters to the parameters to be used when
+        exporting
         @param: dictionary of parameters to be used
         """
         self.params.update(param_dict)
@@ -48,7 +49,8 @@ class ItolExport:
     def export(self, export_location):
         """
         Call the export process
-        Calling this directly assumes that the export filetype is already set in the export params
+        Calling this directly assumes that the export filetype is already set
+        in the export params
         @param filelocation: the location to write the export to
         @return: whether the export works
         """
@@ -60,8 +62,10 @@ class ItolExport:
 
 # Run from command line
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="iTOL Downloader",
-                                     epilog="Report bugs at https://github.com/albertyw/itolapi/")
+    parser = argparse.ArgumentParser(
+        description="iTOL Downloader",
+        epilog="Report bugs at https://github.com/albertyw/itolapi/"
+    )
     parser.add_argument(
         'tree_id', help="iTOL ID of the tree you are exporting", type=int)
     parser.add_argument(
