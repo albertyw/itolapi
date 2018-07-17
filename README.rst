@@ -120,6 +120,7 @@ To run tests:
     pip install -r requirements-test-python3.txt
     mypy itolapi
     coverage run setup.py test
+    coverage report -m
 
 To update PyPI:
 
