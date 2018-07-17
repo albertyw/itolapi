@@ -31,7 +31,6 @@ setup(name='itolapi',
       test_suite="itolapi.tests",
       tests_require=[
           'mock>=2.0.0,<3.0.0',
-          'tox>=2.7.0,<3.0.0',
           'codecov>=2.0.9,<3.0.0',
           'codeclimate-test-reporter>=0.2.3,<0.3.0',
           'coverage>=4.0,<4.4',

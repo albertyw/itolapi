@@ -119,7 +119,7 @@ To run tests:
     pip install -r requirements-test.txt
     pip install -r requirements-test-python3.txt
     mypy itolapi
-    tox
+    coverage run setup.py test
 
 To update PyPI:
 
