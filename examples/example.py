@@ -7,10 +7,9 @@ submit the file to itol, then use the returned data
 import os
 import sys
 
-pathname = os.path.dirname(sys.argv[0])
-fullpath = os.path.abspath(pathname)
-parent_path = fullpath + "/../"
-sys.path.append(parent_path)
+current_dir = os.path.abspath(os.path.realpath(__file__))
+root_path = os.path.join(current_dir, '..')
+sys.path.append(root_path)
 
 from itolapi import Itol, ItolExport  # NOQA
 
@@ -22,12 +21,12 @@ print('Creating the upload params')
 test = Itol.Itol()
 
 # Set the tree file
-tree = fullpath + '/example_tree'
+tree = os.path.join(current_dir, 'example_tree')
 test.add_variable('treeFile', tree)
 # Add parameters
 test.add_variable('treeName', 'adsf')
 test.add_variable('treeFormat', 'newick')
-test.add_variable('dataset1File', fullpath + '/example_data')
+test.add_variable('dataset1File', os.path.join(current_dir, 'example_data'))
 test.add_variable('dataset1Label', 'colors')
 test.add_variable('dataset1Separator', 'comma')
 test.add_variable('dataset1Type', 'multibar')

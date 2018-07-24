@@ -6,10 +6,9 @@ data1File.  It also includes some non-fatal warnings.
 import os
 import sys
 
-pathname = os.path.dirname(sys.argv[0])
-fullpath = os.path.abspath(pathname)
-parent_path = fullpath + "/../../"
-sys.path.append(parent_path)
+current_dir = os.path.abspath(os.path.realpath(__file__))
+root_path = os.path.join(current_dir, '..', '..')
+sys.path.append(root_path)
 
 from itolapi import Itol  # NOQA
 
