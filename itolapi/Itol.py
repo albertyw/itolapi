@@ -4,7 +4,6 @@ This is the main file for the iTOL API
 from __future__ import unicode_literals
 
 import argparse
-import io
 import os
 
 from six import string_types
