@@ -46,6 +46,12 @@ class ItolTest(unittest.TestCase):
             self.itol.comm.tree_id = 1234
             self.assertEqual(self.itol.upload(), 0)
 
+    def test_get_webpage(self):
+        self.itol.comm.tree_id = 'asdf'
+        webpage = self.itol.get_webpage()
+        self.assertIn('itol.embl.de', webpage)
+        self.assertIn('asdf', webpage)
+
     def test_get_itol_export(self):
         self.itol.comm.tree_id = 1234
         export = self.itol.get_itol_export()
