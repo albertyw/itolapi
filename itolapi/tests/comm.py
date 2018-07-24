@@ -1,7 +1,9 @@
 from __future__ import unicode_literals
 from mock import patch
+import os
 import tempfile
 import unittest
+import zipfile
 
 from itolapi import Comm
 
@@ -9,7 +11,7 @@ from itolapi import Comm
 class PullOutFilesTest(unittest.TestCase):
 
     def setUp(self):
-        self.tempfile = tempfile.TemporaryFile()
+        self.tempfile = tempfile.NamedTemporaryFile()
 
     def tearDown(self):
         self.tempfile.close()
@@ -29,6 +31,17 @@ class PullOutFilesTest(unittest.TestCase):
         Comm.Comm.pull_out_files(params)
         self.assertTrue('asdf' in params)
         self.assertTrue('zxcv' in params)
+
+    def test_tree_file_extension(self):
+        params = {}
+        params['treeFile'] = self.tempfile
+        zip_file = Comm.Comm.create_zip_from_files(params)
+        with open(zip_file.name, 'rb') as zip_file_handle:
+            with zipfile.ZipFile(zip_file_handle) as zip_handle:
+                files = zip_handle.namelist()
+        expected_tree_name = os.path.basename(self.tempfile.name + '.tree')
+        self.assertIn(expected_tree_name, files)
+        zip_file.close()
 
 
 class UploadTreeTest(unittest.TestCase):

@@ -64,6 +64,7 @@ class Comm:
         temp_zip = Comm.create_zip_from_files(files)
         files = {'zipFile': open(temp_zip.name, 'rb')}
         response = requests.post(self.upload_url, data=params, files=files)
+        temp_zip.close()
         data = response.text
         self.upload_output = data
         good_upload = self.parse_upload()
