@@ -60,8 +60,15 @@ class ItolTest(unittest.TestCase):
         export = self.itol.get_itol_export()
         self.assertEqual(export.params['tree'], 1234)
 
-    def test_print_variables(self):
+    @patch('itolapi.Itol.print')
+    def test_print_variables(self, mock_print):
+        with tempfile.NamedTemporaryFile() as temp:
+            self.itol.variables['asdf'] = temp
+            self.itol.print_variables()
+            self.assertEquals(mock_print.call_args[0][0], 'asdf: ' + temp.name)
+        self.itol.variables['asdf'] = 'qwer'
         self.itol.print_variables()
+        self.assertEquals(mock_print.call_args[0][0], 'asdf: qwer')
 
     def test_delete_variables(self):
         self.itol.add_variable('asdf', '1234')
