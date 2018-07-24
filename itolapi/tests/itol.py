@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from mock import patch
+import tempfile
 import unittest
 
 from itolapi import Itol
@@ -29,6 +30,8 @@ class ItolTest(unittest.TestCase):
     def test_checks_file_variable(self):
         with self.assertRaises(IOError):
             self.itol.add_variable('File', ' ')
+        with tempfile.NamedTemporaryFile() as temp:
+            self.itol.add_variable('File', temp.name)
 
     def test_is_file(self):
         self.assertFalse(Itol.Itol.is_file('asdf'))
