@@ -1,3 +1,8 @@
+2.0.1 July 24, 2018
+-------------------
+ - Simplify tests and get to 100% test coverage
+ - Several code refactors
+
 2.0.0 July 16, 2018
 -------------------
 
