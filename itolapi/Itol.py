@@ -90,7 +90,7 @@ class Itol:
         Print the variables that have been set so far
         """
         for variable_name, variable_value in self.variables.items():
-            if isinstance(variable_value, io.IOBase):
+            if hasattr(variable_value, 'name'):
                 print(variable_name + ': ' + variable_value.name)
             else:
                 print(variable_name + ': ' + variable_value)
