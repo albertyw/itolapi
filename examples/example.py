@@ -7,7 +7,7 @@ submit the file to itol, then use the returned data
 import os
 import sys
 
-current_dir = os.path.abspath(os.path.realpath(__file__))
+current_dir = os.path.dirname(os.path.realpath(__file__))
 root_path = os.path.join(current_dir, '..')
 sys.path.append(root_path)
 
@@ -67,8 +67,8 @@ itol_exporter.set_export_param_value('datasetList', 'dataset1')
 # Export the tree above to pdf
 print('Exporting to pdf')
 itol_exporter = test.get_itol_export()
-export_location = 'example_pdf.pdf'
+export_location = os.path.join(current_dir, 'example_pdf.pdf')
 itol_exporter.set_export_param_value('format', 'pdf')
 itol_exporter.set_export_param_value('datasetList', 'dataset1')
-itol_exporter.export('example_pdf.pdf')
+itol_exporter.export(export_location)
 print('exported tree to ', export_location)
