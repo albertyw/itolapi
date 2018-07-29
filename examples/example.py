@@ -21,15 +21,14 @@ print('Creating the upload params')
 test = Itol.Itol()
 
 # Set the tree file
-tree = os.path.join(current_dir, 'example_tree')
+tree = os.path.join(current_dir, 'tree_of_life.tree.txt')
 test.add_variable('treeFile', tree)
 # Add parameters
-test.add_variable('treeName', 'adsf')
+test.add_variable('treeName', 'Tree of Life Example')
 test.add_variable('treeFormat', 'newick')
-test.add_variable('dataset1File', os.path.join(current_dir, 'example_data'))
-test.add_variable('dataset1Label', 'colors')
-test.add_variable('dataset1Separator', 'comma')
-test.add_variable('dataset1Type', 'multibar')
+test.add_variable('dataset1File', os.path.join(current_dir, 'colors_tol.txt'))
+test.add_variable('dataset2File', os.path.join(current_dir, 'labels.txt'))
+test.add_variable('dataset3File', os.path.join(current_dir, 'ranges.txt'))
 # Check parameters
 test.print_variables()
 # Submit the tree
