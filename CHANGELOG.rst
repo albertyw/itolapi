@@ -1,3 +1,9 @@
+2.0.2 July 28, 2018
+-------------------
+ - Cleanup itolapi example scripts
+ - Add integration tests against itol api
+ - Better test coverage
+
 2.0.1 July 24, 2018
 -------------------
  - Simplify tests and get to 100% test coverage
