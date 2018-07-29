@@ -7,7 +7,7 @@ submit the file to itol, then use the returned data
 import os
 import sys
 
-current_dir = os.path.abspath(os.path.realpath(__file__))
+current_dir = os.path.dirname(os.path.realpath(__file__))
 root_path = os.path.join(current_dir, '..')
 sys.path.append(root_path)
 
@@ -21,15 +21,14 @@ print('Creating the upload params')
 test = Itol.Itol()
 
 # Set the tree file
-tree = os.path.join(current_dir, 'example_tree')
+tree = os.path.join(current_dir, 'tree_of_life.tree.txt')
 test.add_variable('treeFile', tree)
 # Add parameters
-test.add_variable('treeName', 'adsf')
+test.add_variable('treeName', 'Tree of Life Example')
 test.add_variable('treeFormat', 'newick')
-test.add_variable('dataset1File', os.path.join(current_dir, 'example_data'))
-test.add_variable('dataset1Label', 'colors')
-test.add_variable('dataset1Separator', 'comma')
-test.add_variable('dataset1Type', 'multibar')
+test.add_variable('dataset1File', os.path.join(current_dir, 'colors_tol.txt'))
+test.add_variable('dataset2File', os.path.join(current_dir, 'labels.txt'))
+test.add_variable('dataset3File', os.path.join(current_dir, 'ranges.txt'))
 # Check parameters
 test.print_variables()
 # Submit the tree
@@ -67,8 +66,8 @@ itol_exporter.set_export_param_value('datasetList', 'dataset1')
 # Export the tree above to pdf
 print('Exporting to pdf')
 itol_exporter = test.get_itol_export()
-export_location = 'example_pdf.pdf'
+export_location = os.path.join(current_dir, 'example_pdf.pdf')
 itol_exporter.set_export_param_value('format', 'pdf')
 itol_exporter.set_export_param_value('datasetList', 'dataset1')
-itol_exporter.export('example_pdf.pdf')
+itol_exporter.export(export_location)
 print('exported tree to ', export_location)
