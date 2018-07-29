@@ -28,7 +28,7 @@ setup(name='itolapi',
           'requests>=2.0, <3.0',
           'six>=1.11.0,<2.0',
       ],
-      scripts=['itolapi/Itol.py', 'itolapi/ItolExport.py'],
+      scripts=['itolapi/itol.py', 'itolapi/itolexport.py'],
       test_suite="itolapi.tests",
       tests_require=[
           'mock>=2.0.0,<3.0.0',

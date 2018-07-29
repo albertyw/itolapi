@@ -17,8 +17,8 @@ Created by Albert Wang (git at albertyw.com)
 
 With Complements to: `iTOL (Interactive Tree of Life)`_, `Python requests package`.
 
-This iTOL API allows local software to upload trees to iTOL using ``Itol.py``
-and export uploaded trees using ``ItolExport.py`` using direct Python
+This iTOL API allows local software to upload trees to iTOL using ``itol.py``
+and export uploaded trees using ``itolexport.py`` using direct Python
 calls or through shell.  An active internet connection to the
 `iTOL website`_ is required.
 
@@ -27,7 +27,7 @@ Installation
 
 ``pip install itolapi``
 
-Uploading Trees To iTOL (Itol.py)
+Uploading Trees To iTOL (itol.py)
 ---------------------------------
 
 From Command Line
@@ -38,7 +38,7 @@ you must call the Python iTOL API from within a Python program)
 
 ::
 
-    $ Itol.py /path/to/example.tree
+    $ itol.py /path/to/example.tree
     http://itol.embl.de/external.cgi?tree=1234567890&restore_saved=1
 
 From Python
@@ -68,7 +68,7 @@ command line and allows access to all `iTOL options`_
 An example for using the Python iTOL API can found in
 ``examples/example.py``.
 
-Downloading Trees From iTOL (ItolExport.py)
+Downloading Trees From iTOL (itolexport.py)
 -------------------------------------------
 
 From Command Line
@@ -80,7 +80,7 @@ you must use ItolExport from a Python program)
 
 ::
 
-    $ ItolExport.py TREEID FILELOCATION FORMAT [OPTIONS]
+    $ itolexport.py TREEID FILELOCATION FORMAT [OPTIONS]
 
 Options include:
  * ``-d``: show datasets
@@ -90,7 +90,7 @@ Options include:
 From Python
 ~~~~~~~~~~~
 
-Running ItolExport.py from a Python program allows you to use all the
+Running itolexport.py from a Python program allows you to use all the
 options that iTOL has available.
 
 ::
