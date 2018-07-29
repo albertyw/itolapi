@@ -3,6 +3,7 @@ source=.
 omit =
   itolapi/tests/*
   .virtualenv
+  .eggs/*
 
 [report]
 exclude_lines =
