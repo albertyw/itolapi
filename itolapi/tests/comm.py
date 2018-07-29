@@ -20,7 +20,7 @@ class PullOutFilesTest(unittest.TestCase):
         params = {}
         params['asdf'] = 'qwer'
         params['zxcv'] = self.tempfile
-        new_params, files = Comm.Comm.pull_out_files(params)
+        new_params, files = Comm.pull_out_files(params)
         self.assertEqual(new_params, {'asdf': 'qwer'})
         self.assertEqual(files, {'zxcv': params['zxcv']})
 
@@ -28,14 +28,14 @@ class PullOutFilesTest(unittest.TestCase):
         params = {}
         params['asdf'] = 'qwer'
         params['zxcv'] = self.tempfile
-        Comm.Comm.pull_out_files(params)
+        Comm.pull_out_files(params)
         self.assertTrue('asdf' in params)
         self.assertTrue('zxcv' in params)
 
     def test_tree_file_extension(self):
         params = {}
         params['treeFile'] = self.tempfile
-        zip_file = Comm.Comm.create_zip_from_files(params)
+        zip_file = Comm.create_zip_from_files(params)
         with open(zip_file.name, 'rb') as zip_file_handle:
             with zipfile.ZipFile(zip_file_handle) as zip_handle:
                 files = zip_handle.namelist()
@@ -48,7 +48,7 @@ class UploadTreeTest(unittest.TestCase):
 
     def setUp(self):
         self.tempfile = tempfile.NamedTemporaryFile()
-        self.comm = Comm.Comm()
+        self.comm = Comm()
         self.params = {'asdf': 'qwer'}
         self.files = {'zxcv': self.tempfile}
         self.all_params = self.params.copy()
@@ -57,9 +57,9 @@ class UploadTreeTest(unittest.TestCase):
     def tearDown(self):
         self.tempfile.close()
 
-    @patch('itolapi.Comm.Comm.pull_out_files')
-    @patch('itolapi.Comm.requests')
-    @patch('itolapi.Comm.Comm.parse_upload')
+    @patch('itolapi.Comm.pull_out_files')
+    @patch('itolapi.comm.requests')
+    @patch('itolapi.Comm.parse_upload')
     def test_upload_tree(self, mock_parse, mock_requests, mock_pull):
         mock_pull.return_value = (self.params, self.files)
         mock_requests.post().text = 'asdf'
@@ -80,7 +80,7 @@ class UploadTreeTest(unittest.TestCase):
 class ParseUploadTest(unittest.TestCase):
 
     def setUp(self):
-        self.comm = Comm.Comm()
+        self.comm = Comm()
 
     def test_successful(self):
         self.comm.upload_output = 'SUCCESS 1234'
@@ -107,12 +107,12 @@ class ParseUploadTest(unittest.TestCase):
 class ExportImageTest(unittest.TestCase):
 
     def setUp(self):
-        self.comm = Comm.Comm()
+        self.comm = Comm()
         self.params = {'tree_id': '1234'}
         self.files = {}
 
-    @patch('itolapi.Comm.Comm.pull_out_files')
-    @patch('itolapi.Comm.requests')
+    @patch('itolapi.Comm.pull_out_files')
+    @patch('itolapi.comm.requests')
     def test_export_image(self, mock_requests, mock_pull):
         mock_pull.return_value = (self.params, self.files)
         mock_requests.post().content = 'asdf'

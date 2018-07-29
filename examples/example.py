@@ -18,7 +18,7 @@ print('')
 print('Creating the upload params')
 
 # Create the Itol class
-test = Itol.Itol()
+test = Itol()
 
 # Set the tree file
 tree = os.path.join(current_dir, 'tree_of_life.tree.txt')
@@ -56,7 +56,7 @@ print('Warnings: ' + str(test.comm.warnings))
 
 
 # Export a pre-made tree to pdf
-itol_exporter = ItolExport.ItolExport()
+itol_exporter = ItolExport()
 itol_exporter.set_export_param_value('tree', '18793532031912684633930')
 itol_exporter.set_export_param_value('format', 'pdf')
 itol_exporter.set_export_param_value('datasetList', 'dataset1')

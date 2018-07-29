@@ -8,7 +8,7 @@ from itolapi import ItolExport
 class ItolTest(unittest.TestCase):
 
     def setUp(self):
-        self.export = ItolExport.ItolExport()
+        self.export = ItolExport()
 
     def test_add_export_param_dict(self):
         params = {'asdf': 'qwer'}
@@ -26,6 +26,6 @@ class ItolTest(unittest.TestCase):
         self.assertEqual(self.export.get_export_params(), params)
 
     def test_export(self):
-        with patch('itolapi.Comm.Comm.export_image') as mock_upload:
+        with patch('itolapi.Comm.export_image') as mock_upload:
             mock_upload.return_value = b'asdf'
             self.export.export('/tmp/asdf.pdf')

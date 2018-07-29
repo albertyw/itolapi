@@ -50,7 +50,7 @@ command line and allows access to all `iTOL options`_
 ::
 
     from itolapi import Itol
-    itol_uploader = Itol.Itol()
+    itol_uploader = Itol()
     itol_uploader.add_variable('treeFile', '/path/to/example.tree')
     itol_uploader.add_variable('treeFormat', 'newick')
     itol_uploader.add_variable('treeName', 'apple')
@@ -96,7 +96,7 @@ options that iTOL has available.
 ::
 
     from itolapi import ItolExport
-    itol_exporter = ItolExport.ItolExport()
+    itol_exporter = ItolExport()
     itol_exporter.add_export_param_value('tree', tree_id)
     assert format in ['png', 'svg', 'eps', 'ps', 'pdf', 'nexus', 'newick']
     itol_exporter.add_export_param_value('format', format)

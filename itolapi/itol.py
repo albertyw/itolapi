@@ -21,7 +21,7 @@ class Itol:
         Initialize a few required variables
         """
         self.variables = dict()
-        self.comm = Comm.Comm()
+        self.comm = Comm()
 
     def add_variable(self, variable_name, variable_value):
         """
@@ -80,7 +80,7 @@ class Itol:
         generated tree
         @return: instance of ItolExport
         """
-        itol_exporter = ItolExport.ItolExport()
+        itol_exporter = ItolExport()
         itol_exporter.set_export_param_value('tree', self.comm.tree_id)
         return itol_exporter
 

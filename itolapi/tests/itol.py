@@ -9,7 +9,7 @@ from itolapi import Itol
 class ItolTest(unittest.TestCase):
 
     def setUp(self):
-        self.itol = Itol.Itol()
+        self.itol = Itol()
 
     def test_initializes(self):
         self.assertEqual(self.itol.variables, {})
@@ -34,17 +34,17 @@ class ItolTest(unittest.TestCase):
             self.itol.add_variable('File', temp.name)
 
     def test_is_file(self):
-        self.assertFalse(Itol.Itol.is_file('asdf'))
-        self.assertTrue(Itol.Itol.is_file('asdfFile'))
+        self.assertFalse(Itol.is_file('asdf'))
+        self.assertTrue(Itol.is_file('asdfFile'))
 
     def test_good_upload(self):
-        with patch('itolapi.Comm.Comm.upload_tree') as mock_upload:
+        with patch('itolapi.Comm.upload_tree') as mock_upload:
             mock_upload.return_value = True
             self.itol.comm.tree_id = 1234
             self.assertEqual(self.itol.upload(), 1234)
 
     def test_bad_upload(self):
-        with patch('itolapi.Comm.Comm.upload_tree') as mock_upload:
+        with patch('itolapi.Comm.upload_tree') as mock_upload:
             mock_upload.return_value = False
             self.itol.comm.tree_id = 1234
             self.assertEqual(self.itol.upload(), 0)
@@ -60,7 +60,7 @@ class ItolTest(unittest.TestCase):
         export = self.itol.get_itol_export()
         self.assertEqual(export.params['tree'], 1234)
 
-    @patch('itolapi.Itol.print')
+    @patch('itolapi.itol.print')
     def test_print_variables(self, mock_print):
         with tempfile.NamedTemporaryFile() as temp:
             self.itol.variables['asdf'] = temp

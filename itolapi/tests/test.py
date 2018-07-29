@@ -10,7 +10,7 @@ class TestIntegration(unittest.TestCase):
         current_dir = os.path.dirname(os.path.realpath(__file__))
         examples_dir = os.path.join(current_dir, '..', '..', 'examples')
 
-        test = Itol.Itol()
+        test = Itol()
         tree = os.path.join(examples_dir, 'tree_of_life.tree.txt')
         test.add_variable('treeFile', tree)
         dataset = os.path.join(examples_dir, 'colors_tol.txt')

@@ -20,7 +20,7 @@ class ItolExport:
         Instantiate class
         """
         self.params = dict({})
-        self.comm = Comm.Comm()
+        self.comm = Comm()
 
     # Setting Export Parameters
     def add_export_param_dict(self, param_dict):
