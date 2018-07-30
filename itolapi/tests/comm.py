@@ -33,13 +33,11 @@ class PullOutFilesTest(unittest.TestCase):
         self.assertTrue('zxcv' in params)
 
     def test_tree_file_extension(self):
-        params = {}
-        params['treeFile'] = self.tempfile
-        zip_file = Comm.create_zip_from_files(params)
+        zip_file = Comm.create_zip_from_files([self.tempfile.name])
         with open(zip_file.name, 'rb') as zip_file_handle:
             with zipfile.ZipFile(zip_file_handle) as zip_handle:
                 files = zip_handle.namelist()
-        expected_tree_name = os.path.basename(self.tempfile.name + '.tree')
+        expected_tree_name = os.path.basename(self.tempfile.name)
         self.assertIn(expected_tree_name, files)
         zip_file.close()
 
@@ -48,24 +46,19 @@ class UploadTreeTest(unittest.TestCase):
 
     def setUp(self):
         self.tempfile = tempfile.NamedTemporaryFile()
+        self.files = [self.tempfile.name]
         self.comm = Comm()
-        self.params = {'asdf': 'qwer'}
-        self.files = {'zxcv': self.tempfile}
-        self.all_params = self.params.copy()
-        self.all_params.update(self.files)
+        self.params = {'treeName': 'asdf'}
 
     def tearDown(self):
         self.tempfile.close()
 
-    @patch('itolapi.Comm.pull_out_files')
     @patch('itolapi.comm.requests')
     @patch('itolapi.Comm.parse_upload')
-    def test_upload_tree(self, mock_parse, mock_requests, mock_pull):
-        mock_pull.return_value = (self.params, self.files)
+    def test_upload_tree(self, mock_parse, mock_requests):
         mock_requests.post().text = 'asdf'
         mock_parse.return_value = 'qwer'
-        output = self.comm.upload_tree(self.all_params)
-        mock_pull.assert_called_once_with(self.all_params)
+        output = self.comm.upload_tree(self.files, self.params)
         self.assertEqual(
             mock_requests.post.call_args[0][0],
             self.comm.upload_url
