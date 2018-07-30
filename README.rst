@@ -51,9 +51,8 @@ command line and allows access to all `iTOL options`_
 
     from itolapi import Itol
     itol_uploader = Itol()
-    itol_uploader.add_variable('treeFile', '/path/to/example.tree')
-    itol_uploader.add_variable('treeFormat', 'newick')
-    itol_uploader.add_variable('treeName', 'apple')
+    itol_uploader.add_file('/path/to/example.tree')
+    itol_uploader.params['treeName'] = 'apple'
     status = itol_uploader.upload()
     assert status != False
     itol_uploader.comm.upload_output

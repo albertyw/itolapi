@@ -22,13 +22,12 @@ test = Itol()
 
 # Set the tree file
 tree = os.path.join(current_dir, 'tree_of_life.tree.txt')
-test.add_variable('treeFile', tree)
+test.add_file(tree)
+test.add_file(os.path.join(current_dir, 'colors_tol.txt'))
+test.add_file(os.path.join(current_dir, 'labels.txt'))
+test.add_file(os.path.join(current_dir, 'ranges.txt'))
 # Add parameters
-test.add_variable('treeName', 'Tree of Life Example')
-test.add_variable('treeFormat', 'newick')
-test.add_variable('dataset1File', os.path.join(current_dir, 'colors_tol.txt'))
-test.add_variable('dataset2File', os.path.join(current_dir, 'labels.txt'))
-test.add_variable('dataset3File', os.path.join(current_dir, 'ranges.txt'))
+test.params['treeName'] = 'Tree of Life Example'
 # Check parameters
 test.print_variables()
 # Submit the tree
