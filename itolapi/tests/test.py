@@ -12,9 +12,9 @@ class TestIntegration(unittest.TestCase):
 
         test = Itol()
         tree = os.path.join(examples_dir, 'tree_of_life.tree.txt')
-        test.add_variable('treeFile', tree)
+        test.add_file(tree)
         dataset = os.path.join(examples_dir, 'colors_tol.txt')
-        test.add_variable('dataset1File', dataset)
+        test.add_file(dataset)
         upload_status = test.upload()
 
         self.assertTrue(upload_status)

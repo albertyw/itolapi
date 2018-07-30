@@ -12,30 +12,15 @@ class ItolTest(unittest.TestCase):
         self.itol = Itol()
 
     def test_initializes(self):
-        self.assertEqual(self.itol.variables, {})
+        self.assertEqual(type(self.itol.params), dict)
+        self.assertEqual(self.itol.files, [])
         self.assertIsNotNone(self.itol.comm)
 
-    def test_add_variable(self):
-        self.itol.add_variable('x', 'asdf')
-        self.assertEqual(self.itol.variables['x'], 'asdf')
-
-    def test_checks_variable_name(self):
-        with self.assertRaises(TypeError):
-            self.itol.add_variable(1234, 'asdf')
-
-    def test_checks_variable_value(self):
-        with self.assertRaises(TypeError):
-            self.itol.add_variable('x', 1234)
-
-    def test_checks_file_variable(self):
-        with self.assertRaises(IOError):
-            self.itol.add_variable('File', ' ')
+    def test_add_file(self):
         with tempfile.NamedTemporaryFile() as temp:
-            self.itol.add_variable('File', temp.name)
-
-    def test_is_file(self):
-        self.assertFalse(Itol.is_file('asdf'))
-        self.assertTrue(Itol.is_file('asdfFile'))
+            self.itol.add_file(temp.name)
+        with self.assertRaises(IOError):
+            self.itol.add_file(' ')
 
     def test_good_upload(self):
         with patch('itolapi.Comm.upload_tree') as mock_upload:
@@ -60,19 +45,11 @@ class ItolTest(unittest.TestCase):
         export = self.itol.get_itol_export()
         self.assertEqual(export.params['tree'], 1234)
 
-    @patch('itolapi.itol.print')
+    @patch('itolapi.itol.pprint.pprint')
     def test_print_variables(self, mock_print):
+        self.itol.params['treeName'] = 'test'
         with tempfile.NamedTemporaryFile() as temp:
-            self.itol.variables['asdf'] = temp
+            self.itol.add_file(temp.name)
             self.itol.print_variables()
-            self.assertEquals(mock_print.call_args[0][0], 'asdf: ' + temp.name)
-        self.itol.variables['asdf'] = 'qwer'
-        self.itol.print_variables()
-        self.assertEquals(mock_print.call_args[0][0], 'asdf: qwer')
-
-    def test_delete_variables(self):
-        self.itol.add_variable('asdf', '1234')
-        self.assertTrue('asdf' in self.itol.variables)
-        self.itol.delete_variable('asdf')
-        self.assertFalse('asdf' in self.itol.variables)
-        self.assertFalse('asdf' in self.itol.variables)  # Idempotent
+        self.assertEqual(mock_print.call_args_list[0][0][0], self.itol.files)
+        self.assertEqual(mock_print.call_args_list[1][0][0], self.itol.params)

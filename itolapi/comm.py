@@ -28,39 +28,23 @@ class Comm:
         self.warnings = []
 
     @staticmethod
-    def pull_out_files(params):
-        """
-        Pull out file objects so they can be fed into requests separately
-        """
-        new_params = {}
-        files = {}
-        for k, v in params.items():
-            if hasattr(v, 'read'):
-                files[k] = v
-            else:
-                new_params[k] = v
-        return new_params, files
-
-    @staticmethod
     def create_zip_from_files(files):
         """
         Write files into a zip file for uploading
         """
         temp = tempfile.NamedTemporaryFile()
         with zipfile.ZipFile(temp, 'w') as handle:
-            for k, v in files.items():
-                filename = os.path.basename(v.name)
-                if k == 'treeFile':
-                    filename += '.tree'
-                handle.write(v.name, arcname=filename)
+            for f in files:
+                filename = os.path.basename(f)
+                handle.write(f, arcname=filename)
         return temp
 
-    def upload_tree(self, params):
+    def upload_tree(self, files, params):
         """
-        Submit the File to Itol using api at self.upload_url
+        Submit the File to Itol using api at self.upload_url;
+        files is a list of file paths that will be zipped and uploaded
         params is the dictionary of variables that will be uploaded
         """
-        params, files = Comm.pull_out_files(params)
         temp_zip = Comm.create_zip_from_files(files)
         files = {'zipFile': open(temp_zip.name, 'rb')}
         response = requests.post(self.upload_url, data=params, files=files)
@@ -90,7 +74,6 @@ class Comm:
         Submit an export request to Itol using api at self.export_url
         @return: true if connection was established to server
         """
-        params, files = Comm.pull_out_files(params)
-        response = requests.post(self.export_url, data=params, files=files)
+        response = requests.post(self.export_url, data=params)
         self.export_output = response.content
         return self.export_output
