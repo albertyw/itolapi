@@ -48,19 +48,17 @@ class Comm:
         """
         temp = tempfile.NamedTemporaryFile()
         with zipfile.ZipFile(temp, 'w') as handle:
-            for k, v in files.items():
-                filename = os.path.basename(v.name)
-                if k == 'treeFile':
-                    filename += '.tree'
-                handle.write(v.name, arcname=filename)
+            for f in files:
+                filename = os.path.basename(f)
+                handle.write(f, arcname=filename)
         return temp
 
-    def upload_tree(self, params):
+    def upload_tree(self, files, params):
         """
-        Submit the File to Itol using api at self.upload_url
+        Submit the File to Itol using api at self.upload_url;
+        files is a list of file paths that will be zipped and uploaded
         params is the dictionary of variables that will be uploaded
         """
-        params, files = Comm.pull_out_files(params)
         temp_zip = Comm.create_zip_from_files(files)
         files = {'zipFile': open(temp_zip.name, 'rb')}
         response = requests.post(self.upload_url, data=params, files=files)

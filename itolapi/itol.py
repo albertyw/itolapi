@@ -5,8 +5,7 @@ from __future__ import unicode_literals
 
 import argparse
 import os
-
-from six import string_types
+import pprint
 
 from itolapi import Comm, ItolExport
 
@@ -19,47 +18,30 @@ class Itol:
     def __init__(self):
         """
         Initialize a few required variables
+        See http://itol.embl.de/help.cgi#bUpOpt for available params
         """
-        self.variables = dict()
+        self.files = []
+        self.params = {
+            'uploadID': '',
+            'projectName': '',
+            'treeName': '',
+            'treeDescription': '',
+        }
         self.comm = Comm()
 
-    def add_variable(self, variable_name, variable_value):
+    def add_file(self, file_path):
         """
-        Add a variable and its value to this upload.  This function includes
-        some basic variable checking and should be used instead of directly
-        modifying the variables dictionary
+        Add a file to be uploaded, tree or dataset
         """
-        # Variable checking
-        if not isinstance(variable_name, string_types):
-            raise TypeError('variable name is not a string')
-        if not isinstance(variable_value, string_types):
-            raise TypeError('variable value should be a string')
-        if self.is_file(variable_name):
-            if not os.path.isfile(variable_value):
-                raise IOError('variable name ' + variable_name +
-                              ' indicates value should be a file')
-            variable_value = open(variable_value, 'r')
-        # Add the variable
-        self.variables[variable_name] = variable_value
-        return True
-
-    @staticmethod
-    def is_file(variable_name):
-        """
-        This returns a boolean whether the string in variable_name is a file
-        This is determined by looking at whether "File" is a substring of
-        variable_name; this assumes that variable_name is a string
-        """
-        if variable_name.find('File') != -1:
-            return True
-        else:
-            return False
+        if not os.path.isfile(file_path):
+            raise IOError('%s is not a file' % file_path)
+        self.files.append(file_path)
 
     def upload(self):
         """
-        Upload the variables to the iTOL server and return an ItolExport object
+        Upload the data to the iTOL server and return an ItolExport object
         """
-        good_upload = self.comm.upload_tree(self.variables)
+        good_upload = self.comm.upload_tree(self.files, self.params)
         if good_upload:
             return self.comm.tree_id
         else:
@@ -86,20 +68,12 @@ class Itol:
 
     def print_variables(self):
         """
-        Print the variables that have been set so far
+        Print the files and params that have been set so far
         """
-        for variable_name, variable_value in self.variables.items():
-            if hasattr(variable_value, 'name'):
-                print(variable_name + ': ' + variable_value.name)
-            else:
-                print(variable_name + ': ' + variable_value)
-
-    def delete_variable(self, variable_name):
-        """
-        Remove a variable from the dictionary of set variables
-        """
-        if variable_name in self.variables:
-            del self.variables[variable_name]
+        print('Files:')
+        pprint.pprint(self.files)
+        print('Parameters:')
+        pprint.pprint(self.params)
 
 
 if __name__ == "__main__":
@@ -113,6 +87,6 @@ if __name__ == "__main__":
     tree_file = args.tree_file
 
     itol_upload = Itol()
-    itol_upload.add_variable('treeFile', tree_file)
+    itol_upload.add_file(tree_file)
     itol_upload.upload()
     print(itol_upload.get_webpage())
