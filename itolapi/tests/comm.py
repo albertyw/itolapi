@@ -16,22 +16,6 @@ class PullOutFilesTest(unittest.TestCase):
     def tearDown(self):
         self.tempfile.close()
 
-    def test_pull_out_files(self):
-        params = {}
-        params['asdf'] = 'qwer'
-        params['zxcv'] = self.tempfile
-        new_params, files = Comm.pull_out_files(params)
-        self.assertEqual(new_params, {'asdf': 'qwer'})
-        self.assertEqual(files, {'zxcv': params['zxcv']})
-
-    def test_doesnt_modify_params(self):
-        params = {}
-        params['asdf'] = 'qwer'
-        params['zxcv'] = self.tempfile
-        Comm.pull_out_files(params)
-        self.assertTrue('asdf' in params)
-        self.assertTrue('zxcv' in params)
-
     def test_tree_file_extension(self):
         zip_file = Comm.create_zip_from_files([self.tempfile.name])
         with open(zip_file.name, 'rb') as zip_file_handle:
@@ -102,12 +86,9 @@ class ExportImageTest(unittest.TestCase):
     def setUp(self):
         self.comm = Comm()
         self.params = {'tree_id': '1234'}
-        self.files = {}
 
-    @patch('itolapi.Comm.pull_out_files')
     @patch('itolapi.comm.requests')
-    def test_export_image(self, mock_requests, mock_pull):
-        mock_pull.return_value = (self.params, self.files)
+    def test_export_image(self, mock_requests):
         mock_requests.post().content = 'asdf'
         output = self.comm.export_image(self.params)
         self.assertEqual(output, 'asdf')

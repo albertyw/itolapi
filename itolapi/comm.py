@@ -28,20 +28,6 @@ class Comm:
         self.warnings = []
 
     @staticmethod
-    def pull_out_files(params):
-        """
-        Pull out file objects so they can be fed into requests separately
-        """
-        new_params = {}
-        files = {}
-        for k, v in params.items():
-            if hasattr(v, 'read'):
-                files[k] = v
-            else:
-                new_params[k] = v
-        return new_params, files
-
-    @staticmethod
     def create_zip_from_files(files):
         """
         Write files into a zip file for uploading
@@ -88,7 +74,6 @@ class Comm:
         Submit an export request to Itol using api at self.export_url
         @return: true if connection was established to server
         """
-        params, files = Comm.pull_out_files(params)
-        response = requests.post(self.export_url, data=params, files=files)
+        response = requests.post(self.export_url, data=params)
         self.export_output = response.content
         return self.export_output
