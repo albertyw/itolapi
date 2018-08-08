@@ -1,3 +1,3 @@
-from itolapi.comm import Comm  # NOQA
-from itolapi.itolexport import ItolExport  # NOQA
-from itolapi.itol import Itol  # NOQA
+from .comm import Comm  # NOQA
+from .itolexport import ItolExport  # NOQA
+from .itol import Itol  # NOQA
