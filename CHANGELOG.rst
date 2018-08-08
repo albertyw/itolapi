@@ -1,3 +1,8 @@
+3.0.1 (unreleased)
+------------------
+
+ - Removed extraneous old files from wheel release
+
 3.0.0 July 29, 2018
 -------------------
 
