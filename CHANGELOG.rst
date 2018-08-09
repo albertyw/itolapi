@@ -1,7 +1,8 @@
-3.0.1 (unreleased)
-------------------
+3.0.1 August 8, 2018
+--------------------
 
  - Removed extraneous old files from wheel release
+ - Explicitly use relative imports
 
 3.0.0 July 29, 2018
 -------------------
