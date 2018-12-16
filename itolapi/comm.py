@@ -61,7 +61,7 @@ class Comm:
         @return: True if the tree is uploaded successfully or successfully
                  with warnings; False if error occured
         """
-        if self.upload_output.find('SUCCESS') == -1:
+        if 'SUCCESS' not in self.upload_output:
             # Fatal Error
             self.warnings = [self.upload_output]
             return False
