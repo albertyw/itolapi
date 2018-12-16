@@ -83,7 +83,7 @@ you must use ItolExport from a Python program)
 
 Options include:
  * ``-d``: show datasets
- * ``-r``: verbose output
+ * ``-v``: verbose output
  * ``-h``: help
 
 From Python
