@@ -1,3 +1,11 @@
+3.0.2 December 15, 2018
+-----------------------
+
+ - Update upload/download url
+ - Dependency updates
+ - Minor refactor
+
+
 3.0.1 August 8, 2018
 --------------------
 
