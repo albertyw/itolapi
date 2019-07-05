@@ -1,3 +1,11 @@
+3.0.3 July 5, 2019
+------------------
+
+ - Update dependencies
+ - Clean up some tempfile operations
+ - Remove support for python 3.4 and python 3.5
+
+
 3.0.2 December 15, 2018
 -----------------------
 
