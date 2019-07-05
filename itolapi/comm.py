@@ -37,6 +37,7 @@ class Comm:
             for f in files:
                 filename = os.path.basename(f)
                 handle.write(f, arcname=filename)
+        temp.flush()
         return temp
 
     def upload_tree(self, files, params):
