@@ -116,7 +116,6 @@ To run tests:
 
     python setup.py install
     pip install -r requirements-test.txt
-    pip install -r requirements-test-python3.txt
     mypy itolapi
     coverage run setup.py test
     coverage report -m
