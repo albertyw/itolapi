@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
-from mock import patch
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from itolapi import Itol
 

@@ -1,8 +1,8 @@
 from __future__ import unicode_literals
-from mock import patch
 import os
 import tempfile
 import unittest
+from unittest.mock import patch
 import zipfile
 
 from itolapi import Comm

@@ -1,5 +1,4 @@
 # Testing
 coverage==4.5.3                  # Test coverage
 flake8==3.7.7                    # Python linting
-mock==3.0.5                      # Test mocks
 codecov==2.0.15                  # Test coverage reporting
