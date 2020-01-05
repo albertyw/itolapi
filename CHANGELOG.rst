@@ -1,3 +1,10 @@
+4.0.0 January 5, 2020
+---------------------
+
+ - Drop support for python 2
+ - Update dependencies
+
+
 3.0.3 July 5, 2019
 ------------------
 
