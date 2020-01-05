@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 import tempfile
 import unittest
 from unittest.mock import patch

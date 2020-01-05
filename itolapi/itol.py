@@ -1,8 +1,6 @@
 """
 This is the main file for the iTOL API
 """
-from __future__ import unicode_literals
-
 import argparse
 import os
 import pprint
