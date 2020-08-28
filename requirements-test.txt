@@ -1,5 +1,5 @@
 # Testing
-coverage==5.0.1                  # Test coverage
-flake8==3.7.9                    # Python linting
-codecov==2.0.15                  # Test coverage reporting
-mypy==0.761                      # Static typing
+coverage==5.2.1                  # Test coverage
+flake8==3.8.3                    # Python linting
+codecov==2.1.9                   # Test coverage reporting
+mypy==0.782                      # Static typing
