@@ -10,6 +10,9 @@ iTOL Python API
 [![Maintainability](https://api.codeclimate.com/v1/badges/365d217b9dd6c2f97cb4/maintainability)](https://codeclimate.com/github/albertyw/itolapi/maintainability)
 [![Updates](https://pyup.io/repos/github/albertyw/itolapi/shield.svg)](https://pyup.io/repos/github/albertyw/itolapi/)
 
+> Notice: Due to [iTOL requiring paid subscriptions for batch uploads](https://itol.embl.de/infoReg.cgi),
+> this library will be deprecated after October 1, 2020.
+
 Python API for the Interactive Tree of Life (iTOL)
 
 Created by Albert Wang (git at albertyw.com)

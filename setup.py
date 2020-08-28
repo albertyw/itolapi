@@ -35,7 +35,7 @@ setup(name='itolapi',
           'coverage>=4.5.0,<5.0.0',
       ],
       classifiers=[
-          'Development Status :: 5 - Production/Stable',
+          'Development Status :: 7 - Inactive',
           'Environment :: Console',
           'Intended Audience :: Developers',
           'Intended Audience :: Science/Research',
