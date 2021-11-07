@@ -6,6 +6,7 @@ from itolapi import Itol
 
 
 class TestIntegration(unittest.TestCase):
+    @unittest.skip("No API subscription")
     def test_upload_download(self):
         current_dir = os.path.dirname(os.path.realpath(__file__))
         examples_dir = os.path.join(current_dir, '..', '..', 'examples')
