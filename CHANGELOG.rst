@@ -1,3 +1,13 @@
+4.0.1 November 7, 2021
+----------------------
+
+ - Support Python 3.10
+ - Update dependencies
+ - Update readme
+ - Disable integration testing because of subscription requirements
+ - Switch from codeship to drone
+
+
 4.0.0 January 5, 2020
 ---------------------
 
