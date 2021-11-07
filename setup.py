@@ -30,7 +30,6 @@ setup(name='itolapi',
       scripts=['itolapi/itol.py', 'itolapi/itolexport.py'],
       test_suite="itolapi.tests",
       tests_require=[
-          'mock>=3.0.0,<4.0.0',
           'coverage>=6.0.0,<7.0.0',
       ],
       classifiers=[
