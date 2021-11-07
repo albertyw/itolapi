@@ -31,7 +31,7 @@ setup(name='itolapi',
       test_suite="itolapi.tests",
       tests_require=[
           'mock>=3.0.0,<4.0.0',
-          'coverage>=4.5.0,<5.0.0',
+          'coverage>=6.0.0,<7.0.0',
       ],
       classifiers=[
           'Development Status :: 7 - Inactive',
