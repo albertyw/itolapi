@@ -5,8 +5,8 @@ iTOL Python API
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/itolapi)
 ![PyPI - License](https://img.shields.io/pypi/l/itolapi)
 
-[![Codeship Status for albertyw/itolapi](https://app.codeship.com/projects/d6470c00-c832-0132-4536-627bbcd2f5ed/status?branch=master)](https://app.codeship.com/projects/75058)
-[![codecov](https://codecov.io/gh/albertyw/itolapi/branch/master/graph/badge.svg)](https://codecov.io/gh/albertyw/itolapi)
+[![Build Status](https://drone.albertyw.com/api/badges/albertyw/itolapi/status.svg)](https://drone.albertyw.com/albertyw/itolapi)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/365d217b9dd6c2f97cb4/test_coverage)](https://codeclimate.com/github/albertyw/itolapi/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/365d217b9dd6c2f97cb4/maintainability)](https://codeclimate.com/github/albertyw/itolapi/maintainability)
 [![Updates](https://pyup.io/repos/github/albertyw/itolapi/shield.svg)](https://pyup.io/repos/github/albertyw/itolapi/)
 
