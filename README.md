@@ -115,8 +115,9 @@ Development
 To run tests:
 
 ```bash
-python setup.py install
+python setup.py develop
 pip install -r requirements-test.txt
+flake8
 mypy itolapi
-coverage run setup.py
+coverage run -m unittest
 ```
