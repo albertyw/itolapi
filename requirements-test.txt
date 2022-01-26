@@ -1,7 +1,7 @@
 # Testing
-coverage==6.1.1                  # Test coverage
+coverage==6.3                    # Test coverage
 flake8==4.0.1                    # Python linting
 
 # Types
-mypy==0.910                      # Static typing
-types-requests==2.25.11          # Type stubs for requests package
+mypy==0.931                      # Static typing
+types-requests==2.27.7           # Type stubs for requests package
