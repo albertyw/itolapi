@@ -4,4 +4,4 @@ flake8==4.0.1                    # Python linting
 
 # Types
 mypy==0.931                      # Static typing
-types-requests==2.25.11          # Type stubs for requests package
+types-requests==2.27.7           # Type stubs for requests package
