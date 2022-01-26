@@ -1,3 +1,11 @@
+4.0.2 January 25, 2022
+----------------------
+
+ - Fix executibility of ``itol.py`` and ``itolexport.py``
+ - Update test dependencies
+ - Clean up packaging configuration
+
+
 4.0.1 November 7, 2021
 ----------------------
 
