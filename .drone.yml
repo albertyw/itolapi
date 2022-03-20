@@ -8,11 +8,6 @@ volumes:
       path: /home/albertyw/.ssh/other/pypirc
 
 steps:
-  - name: fetch
-    image: alpine/git
-    commands:
-      - git fetch --tags
-
   - name: Test Python
     image: python:3.10
     commands:
