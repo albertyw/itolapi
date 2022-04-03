@@ -5,6 +5,7 @@ This is the main file for exporting of trees created by iTOL
 """
 import argparse
 import sys
+from typing import Dict
 
 from itolapi import Comm
 
@@ -15,15 +16,15 @@ class ItolExport:
     Instantiate the itolexport class with empty params and empty server
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Instantiate class
         """
-        self.params = dict({})
+        self.params: Dict[str, str] = dict({})
         self.comm = Comm()
 
     # Setting Export Parameters
-    def add_export_param_dict(self, param_dict):
+    def add_export_param_dict(self, param_dict: Dict[str, str]) -> None:
         """
         Add a dictionary of parameters to the parameters to be used when
         exporting
@@ -31,14 +32,14 @@ class ItolExport:
         """
         self.params.update(param_dict)
 
-    def set_export_param_value(self, key, value):
+    def set_export_param_value(self, key: str, value: str) -> None:
         """
         Add a value to the dictionary of parameters to be used when exporting
         @param: dictionary of parameters to be used
         """
         self.params[key] = value
 
-    def get_export_params(self):
+    def get_export_params(self) -> Dict[str, str]:
         """
         Get the dictionary of parameters to tbe used when exporting
         @return: export the Parameters
@@ -46,7 +47,7 @@ class ItolExport:
         return self.params
 
     # Do Exporting
-    def export(self, export_location):
+    def export(self, export_location: str) -> None:
         """
         Call the export process
         Calling this directly assumes that the export filetype is already set
