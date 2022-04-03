@@ -45,13 +45,13 @@ if not good_upload:
 print('Tree ID: ' + test.comm.tree_id)
 
 # Read the iTOL API return statement
-print('iTOL output: ' + str(test.comm.upload_output))
+print('iTOL output: ' + test.comm.upload_output)
 
 # Website to be redirected to iTOL tree
 print('Tree Web Page URL: ' + test.get_webpage())
 
 # Warnings associated with the upload
-print('Warnings: ' + str(test.comm.warnings))
+print('Warnings: ', test.comm.warnings)
 
 
 # Export a pre-made tree to pdf
