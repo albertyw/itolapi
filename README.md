@@ -118,6 +118,6 @@ To run tests:
 python setup.py develop
 pip install -r requirements-test.txt
 flake8
-mypy itolapi
+mypy .
 coverage run -m unittest
 ```

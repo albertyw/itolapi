@@ -6,6 +6,7 @@ This is the main file for the iTOL API
 import argparse
 import os
 import pprint
+from typing import List, Union
 
 from itolapi import Comm, ItolExport
 
@@ -15,12 +16,12 @@ class Itol:
     This class handles the main itol functionality
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Initialize a few required variables
         See http://itol.embl.de/help.cgi#bUpOpt for available params
         """
-        self.files = []
+        self.files: List[str] = []
         self.params = {
             'uploadID': '',
             'projectName': '',
@@ -29,7 +30,7 @@ class Itol:
         }
         self.comm = Comm()
 
-    def add_file(self, file_path):
+    def add_file(self, file_path: str) -> None:
         """
         Add a file to be uploaded, tree or dataset
         """
@@ -37,7 +38,7 @@ class Itol:
             raise IOError('%s is not a file' % file_path)
         self.files.append(file_path)
 
-    def upload(self):
+    def upload(self) -> Union[str, bool]:
         """
         Upload the data to the iTOL server and return an ItolExport object
         """
@@ -45,18 +46,18 @@ class Itol:
         if good_upload:
             return self.comm.tree_id
         else:
-            self.comm.tree_id = 0
+            self.comm.tree_id = '0'
             return False
 
-    def get_webpage(self):
+    def get_webpage(self) -> str:
         """
         Get the web page where you can download the Itol tree
         """
         webpage = "http://itol.embl.de/external.cgi?tree=" +\
-            str(self.comm.tree_id) + "&restore_saved=1"
+            self.comm.tree_id + "&restore_saved=1"
         return webpage
 
-    def get_itol_export(self):
+    def get_itol_export(self) -> ItolExport:
         """
         Returns an instance of ItolExport in preparation of exporting from the
         generated tree
@@ -66,7 +67,7 @@ class Itol:
         itol_exporter.set_export_param_value('tree', self.comm.tree_id)
         return itol_exporter
 
-    def print_variables(self):
+    def print_variables(self) -> None:
         """
         Print the files and params that have been set so far
         """

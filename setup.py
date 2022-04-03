@@ -4,13 +4,14 @@
 from setuptools import setup, find_packages
 from codecs import open
 from os import path
+from typing import Dict
 
 # Get the long description from the README file
 here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
-about = {}
+about: Dict[str, str] = {}
 with open(path.join(here, 'itolapi', '__version__.py')) as f:
     exec(f.read(), about)
 
@@ -43,6 +44,7 @@ setup(name='itolapi',
           'Programming Language :: Python :: 3.9',
           'Programming Language :: Python :: 3.10',
           'Topic :: Scientific/Engineering :: Bio-Informatics',
+          'Typing :: Typed',
       ],
       keywords='tree life compbio biology bioinformatics',
       )

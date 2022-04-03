@@ -15,7 +15,7 @@ steps:
       - chmod +x "${HOME}/bin/cc-test-reporter"
       - pip install -r requirements-test.txt
       - flake8
-      - mypy itolapi
+      - mypy . --strict --exclude build
       - python setup.py develop
       - cc-test-reporter before-build
       - coverage run -m unittest

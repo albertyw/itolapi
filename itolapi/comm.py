@@ -4,6 +4,7 @@ This also processes and stores information returned from the server
 """
 import os
 import tempfile
+from typing import Any, Dict, List
 import zipfile
 
 import requests
@@ -15,19 +16,19 @@ class Comm:
     This also processes and stores information returned from the server
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Initialize
         """
         self.upload_url = 'https://itol.embl.de/batch_uploader.cgi'
         self.export_url = 'https://itol.embl.de/batch_downloader.cgi'
         self.upload_output = ''
-        self.export_output = ''
+        self.export_output = b''
         self.tree_id = ''
-        self.warnings = []
+        self.warnings: List[str] = []
 
     @staticmethod
-    def create_zip_from_files(files):
+    def create_zip_from_files(files: List[str]) -> Any:
         """
         Write files into a zip file for uploading
         """
@@ -39,23 +40,27 @@ class Comm:
         temp.flush()
         return temp
 
-    def upload_tree(self, files, params):
+    def upload_tree(self, files: List[str], params: Dict[str, str]) -> bool:
         """
         Submit the File to Itol using api at self.upload_url;
         files is a list of file paths that will be zipped and uploaded
         params is the dictionary of variables that will be uploaded
         """
         temp_zip = Comm.create_zip_from_files(files)
-        files = {'zipFile': open(temp_zip.name, 'rb')}
-        response = requests.post(self.upload_url, data=params, files=files)
-        files['zipFile'].close()
+        files_post = {'zipFile': open(temp_zip.name, 'rb')}
+        response = requests.post(
+            self.upload_url,
+            data=params,
+            files=files_post,
+        )
+        files_post['zipFile'].close()
         temp_zip.close()
         data = response.text
         self.upload_output = data
         good_upload = self.parse_upload()
         return good_upload
 
-    def parse_upload(self):
+    def parse_upload(self) -> bool:
         """
         Parse the raw returned output for uploading to iTOL
         The output is read from self.upload_output
@@ -70,7 +75,7 @@ class Comm:
         self.tree_id = self.upload_output.strip().split("\n")[-1].split()[1]
         return True
 
-    def export_image(self, params):
+    def export_image(self, params: Dict[str, str]) -> bytes:
         """
         Submit an export request to Itol using api at self.export_url
         @return: true if connection was established to server
