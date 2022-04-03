@@ -42,7 +42,7 @@ if not good_upload:
     sys.exit(1)
 
 # Read the tree ID
-print('Tree ID: ' + str(test.comm.tree_id))
+print('Tree ID: ' + test.comm.tree_id)
 
 # Read the iTOL API return statement
 print('iTOL output: ' + str(test.comm.upload_output))

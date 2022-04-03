@@ -68,7 +68,7 @@ if __name__ == "__main__":
         epilog="Report bugs at https://github.com/albertyw/itolapi/"
     )
     parser.add_argument(
-        'tree_id', help="iTOL ID of the tree you are exporting", type=int)
+        'tree_id', help="iTOL ID of the tree you are exporting", type=str)
     parser.add_argument(
         'file_location', help="File path to write exported tree to")
     parser.add_argument('format', help="Exported data format",
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     itol_exporter = ItolExport()
-    itol_exporter.set_export_param_value('tree', str(args.tree_id))
+    itol_exporter.set_export_param_value('tree', args.tree_id)
     itol_exporter.set_export_param_value('format', args.format)
     if args.dataset:
         itol_exporter.set_export_param_value('datasetList',
