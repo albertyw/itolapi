@@ -1,7 +1,7 @@
 import os
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 import zipfile
 
 from itolapi import Comm
@@ -9,13 +9,13 @@ from itolapi import Comm
 
 class PullOutFilesTest(unittest.TestCase):
 
-    def setUp(self):
+    def setUp(self) -> None:
         self.tempfile = tempfile.NamedTemporaryFile()
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         self.tempfile.close()
 
-    def test_tree_file_extension(self):
+    def test_tree_file_extension(self) -> None:
         zip_file = Comm.create_zip_from_files([self.tempfile.name])
         with open(zip_file.name, 'rb') as zip_file_handle:
             with zipfile.ZipFile(zip_file_handle) as zip_handle:
@@ -27,18 +27,22 @@ class PullOutFilesTest(unittest.TestCase):
 
 class UploadTreeTest(unittest.TestCase):
 
-    def setUp(self):
+    def setUp(self) -> None:
         self.tempfile = tempfile.NamedTemporaryFile()
         self.files = [self.tempfile.name]
         self.comm = Comm()
         self.params = {'treeName': 'asdf'}
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         self.tempfile.close()
 
     @patch('itolapi.comm.requests')
     @patch('itolapi.Comm.parse_upload')
-    def test_upload_tree(self, mock_parse, mock_requests):
+    def test_upload_tree(
+        self,
+        mock_parse: MagicMock,
+        mock_requests: MagicMock,
+    ) -> None:
         mock_requests.post().text = 'asdf'
         mock_parse.return_value = 'qwer'
         output = self.comm.upload_tree(self.files, self.params)
@@ -55,24 +59,24 @@ class UploadTreeTest(unittest.TestCase):
 
 class ParseUploadTest(unittest.TestCase):
 
-    def setUp(self):
+    def setUp(self) -> None:
         self.comm = Comm()
 
-    def test_successful(self):
+    def test_successful(self) -> None:
         self.comm.upload_output = 'SUCCESS 1234'
         status = self.comm.parse_upload()
         self.assertTrue(status)
         self.assertEqual(self.comm.warnings, [])
         self.assertEqual(self.comm.tree_id, '1234')
 
-    def test_successful_warnings(self):
+    def test_successful_warnings(self) -> None:
         self.comm.upload_output = "Warning 1\nWarning 2\nSUCCESS 1234"
         status = self.comm.parse_upload()
         self.assertTrue(status)
         self.assertEqual(self.comm.warnings, ['Warning 1', 'Warning 2'])
         self.assertEqual(self.comm.tree_id, '1234')
 
-    def test_fatal(self):
+    def test_fatal(self) -> None:
         self.comm.upload_output = "ERR 1234"
         status = self.comm.parse_upload()
         self.assertFalse(status)
@@ -82,12 +86,12 @@ class ParseUploadTest(unittest.TestCase):
 
 class ExportImageTest(unittest.TestCase):
 
-    def setUp(self):
+    def setUp(self) -> None:
         self.comm = Comm()
         self.params = {'tree_id': '1234'}
 
     @patch('itolapi.comm.requests')
-    def test_export_image(self, mock_requests):
+    def test_export_image(self, mock_requests: MagicMock) -> None:
         mock_requests.post().content = 'asdf'
         output = self.comm.export_image(self.params)
         self.assertEqual(output, 'asdf')
