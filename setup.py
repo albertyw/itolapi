@@ -4,15 +4,16 @@
 from setuptools import setup, find_packages
 from codecs import open
 from os import path
+from pathlib import Path
 from typing import Dict
 
 # Get the long description from the README file
-here = path.abspath(path.dirname(__file__))
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+here = Path(path.dirname(__file__))
+with open(str(here / 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 about: Dict[str, str] = {}
-with open(path.join(here, 'itolapi', '__version__.py')) as f:
+with open(str(here / 'itolapi' / '__version__.py'), 'r') as f:
     exec(f.read(), about)
 
 

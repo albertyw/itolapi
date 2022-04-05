@@ -2,7 +2,7 @@
 This file is for communication between this API and iTOL servers
 This also processes and stores information returned from the server
 """
-import os
+from pathlib import Path
 import tempfile
 from typing import Any, Dict, List
 import zipfile
@@ -28,19 +28,19 @@ class Comm:
         self.warnings: List[str] = []
 
     @staticmethod
-    def create_zip_from_files(files: List[str]) -> Any:
+    def create_zip_from_files(files: List[Path]) -> Any:
         """
         Write files into a zip file for uploading
         """
         temp = tempfile.NamedTemporaryFile()
         with zipfile.ZipFile(temp, 'w') as handle:
             for f in files:
-                filename = os.path.basename(f)
+                filename = f.name
                 handle.write(f, arcname=filename)
         temp.flush()
         return temp
 
-    def upload_tree(self, files: List[str], params: Dict[str, str]) -> bool:
+    def upload_tree(self, files: List[Path], params: Dict[str, str]) -> bool:
         """
         Submit the File to Itol using api at self.upload_url;
         files is a list of file paths that will be zipped and uploaded

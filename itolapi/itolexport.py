@@ -4,6 +4,7 @@
 This is the main file for exporting of trees created by iTOL
 """
 import argparse
+from pathlib import Path
 import sys
 from typing import Dict
 
@@ -47,7 +48,7 @@ class ItolExport:
         return self.params
 
     # Do Exporting
-    def export(self, export_location: str) -> None:
+    def export(self, export_location: Path) -> None:
         """
         Call the export process
         Calling this directly assumes that the export filetype is already set

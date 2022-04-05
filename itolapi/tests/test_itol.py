@@ -1,3 +1,4 @@
+from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import MagicMock, patch
@@ -17,9 +18,9 @@ class ItolTest(unittest.TestCase):
 
     def test_add_file(self) -> None:
         with tempfile.NamedTemporaryFile() as temp:
-            self.itol.add_file(temp.name)
+            self.itol.add_file(Path(temp.name))
         with self.assertRaises(IOError):
-            self.itol.add_file(' ')
+            self.itol.add_file(Path('/asdf'))
 
     def test_good_upload(self) -> None:
         with patch('itolapi.Comm.upload_tree') as mock_upload:
@@ -48,7 +49,7 @@ class ItolTest(unittest.TestCase):
     def test_print_variables(self, mock_print: MagicMock) -> None:
         self.itol.params['treeName'] = 'test'
         with tempfile.NamedTemporaryFile() as temp:
-            self.itol.add_file(temp.name)
+            self.itol.add_file(Path(temp.name))
             self.itol.print_variables()
         self.assertEqual(mock_print.call_args_list[0][0][0], self.itol.files)
         self.assertEqual(mock_print.call_args_list[1][0][0], self.itol.params)

@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import MagicMock, patch
@@ -16,7 +17,7 @@ class PullOutFilesTest(unittest.TestCase):
         self.tempfile.close()
 
     def test_tree_file_extension(self) -> None:
-        zip_file = Comm.create_zip_from_files([self.tempfile.name])
+        zip_file = Comm.create_zip_from_files([Path(self.tempfile.name)])
         with open(zip_file.name, 'rb') as zip_file_handle:
             with zipfile.ZipFile(zip_file_handle) as zip_handle:
                 files = zip_handle.namelist()
@@ -29,7 +30,7 @@ class UploadTreeTest(unittest.TestCase):
 
     def setUp(self) -> None:
         self.tempfile = tempfile.NamedTemporaryFile()
-        self.files = [self.tempfile.name]
+        self.files = [Path(self.tempfile.name)]
         self.comm = Comm()
         self.params = {'treeName': 'asdf'}
 

@@ -5,11 +5,12 @@ submit the file to itol, then use the returned data
 '''
 
 import os
+from pathlib import Path
 import sys
 
-current_dir = os.path.dirname(os.path.realpath(__file__))
-root_path = os.path.join(current_dir, '..')
-sys.path.append(root_path)
+current_dir = Path(os.path.realpath(__file__)).parent
+root_path = current_dir.parent
+sys.path.append(str(root_path))
 
 from itolapi import Itol, ItolExport  # NOQA
 
@@ -21,11 +22,11 @@ print('Creating the upload params')
 test = Itol()
 
 # Set the tree file
-tree = os.path.join(current_dir, 'tree_of_life.tree.txt')
+tree = current_dir / 'tree_of_life.tree.txt'
 test.add_file(tree)
-test.add_file(os.path.join(current_dir, 'colors_tol.txt'))
-test.add_file(os.path.join(current_dir, 'labels.txt'))
-test.add_file(os.path.join(current_dir, 'ranges.txt'))
+test.add_file(current_dir / 'colors_tol.txt')
+test.add_file(current_dir / 'labels.txt')
+test.add_file(current_dir / 'ranges.txt')
 # Add parameters
 test.params['treeName'] = 'Tree of Life Example'
 # Check parameters
@@ -65,7 +66,7 @@ itol_exporter.set_export_param_value('datasetList', 'dataset1')
 # Export the tree above to pdf
 print('Exporting to pdf')
 itol_exporter = test.get_itol_export()
-export_location = os.path.join(current_dir, 'example_pdf.pdf')
+export_location = current_dir / 'example_pdf.pdf'
 itol_exporter.set_export_param_value('format', 'pdf')
 itol_exporter.set_export_param_value('datasetList', 'dataset1')
 itol_exporter.export(export_location)

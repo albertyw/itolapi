@@ -1,3 +1,4 @@
+from pathlib import Path
 import unittest
 from unittest.mock import patch
 
@@ -27,4 +28,4 @@ class ItolTest(unittest.TestCase):
     def test_export(self) -> None:
         with patch('itolapi.Comm.export_image') as mock_upload:
             mock_upload.return_value = b'asdf'
-            self.export.export('/tmp/asdf.pdf')
+            self.export.export(Path('/tmp/asdf.pdf'))

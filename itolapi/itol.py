@@ -4,7 +4,7 @@
 This is the main file for the iTOL API
 """
 import argparse
-import os
+from pathlib import Path
 import pprint
 from typing import List, Union
 
@@ -21,7 +21,7 @@ class Itol:
         Initialize a few required variables
         See http://itol.embl.de/help.cgi#bUpOpt for available params
         """
-        self.files: List[str] = []
+        self.files: List[Path] = []
         self.params = {
             'uploadID': '',
             'projectName': '',
@@ -30,11 +30,11 @@ class Itol:
         }
         self.comm = Comm()
 
-    def add_file(self, file_path: str) -> None:
+    def add_file(self, file_path: Path) -> None:
         """
         Add a file to be uploaded, tree or dataset
         """
-        if not os.path.isfile(file_path):
+        if not file_path.is_file():
             raise IOError('%s is not a file' % file_path)
         self.files.append(file_path)
 
