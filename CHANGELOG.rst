@@ -1,3 +1,11 @@
+4.1.0 April 4, 2022
+-------------------
+
+ - Fully add type definitions
+ - Update dependencies
+ - Optimize testing
+
+
 4.0.2 January 25, 2022
 ----------------------
 
