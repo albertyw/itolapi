@@ -25,6 +25,7 @@ setup(name='itolapi',
       author='Albert Wang',
       author_email='git@albertyw.com',
       license='MIT',
+      package_data={"itolapi": ["py.typed"]},
       packages=find_packages(exclude=['tests']),
       install_requires=[
           'requests>=2.0,<3.0',
