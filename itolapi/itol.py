@@ -27,6 +27,7 @@ class Itol:
             'projectName': '',
             'treeName': '',
             'treeDescription': '',
+            'APIKey': '',
         }
         self.comm = Comm()
 
