@@ -84,6 +84,8 @@ if __name__ == "__main__":
         epilog="Report bugs at https://github.com/albertyw/itolapi/"
     )
     parser.add_argument(
+        'api_key', help="iTOL API Key")
+    parser.add_argument(
         'tree_file', help="path to the tree file to be uploaded to iTOL")
     args = parser.parse_args()
     tree_file = args.tree_file
