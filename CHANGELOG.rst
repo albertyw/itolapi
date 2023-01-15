@@ -1,3 +1,10 @@
+4.1.2 January 15, 2023
+----------------------
+
+ - Explicitly support iTOL API Key with examples
+ - Update dependencies
+
+
 4.1.1 November 5, 2022
 ----------------------
 
