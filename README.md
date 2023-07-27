@@ -117,7 +117,7 @@ To run tests:
 ```bash
 python setup.py develop
 pip install -r requirements-test.txt
-flake8
+ruff check .
 mypy .
 coverage run -m unittest
 ```

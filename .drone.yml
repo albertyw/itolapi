@@ -9,7 +9,7 @@ steps:
       - curl -L "https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-$(dpkg --print-architecture)" > "${HOME}/bin/cc-test-reporter"
       - chmod +x "${HOME}/bin/cc-test-reporter"
       - pip install -r requirements-test.txt
-      - flake8
+      - ruff check .
       - mypy . --strict --exclude build
       - python setup.py develop
       - cc-test-reporter before-build
