@@ -4,5 +4,5 @@ ruff==0.0.280                    # Python linting
 
 # Types
 mypy==1.4.1                      # Static typing
-types-requests==2.28.11.7        # Type stubs for requests package
+types-requests==2.31.0.2         # Type stubs for requests package
 types-setuptools==65.7.0.1       # Type stubs for setuptools package
