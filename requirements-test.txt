@@ -3,6 +3,6 @@ coverage==7.2.7                  # Test coverage
 ruff==0.0.280                    # Python linting
 
 # Types
-mypy==0.991                      # Static typing
+mypy==1.4.1                      # Static typing
 types-requests==2.28.11.7        # Type stubs for requests package
 types-setuptools==65.7.0.1       # Type stubs for setuptools package
