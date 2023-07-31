@@ -1,0 +1,20 @@
+[tool.ruff]
+select = ["E", "F", "B"]
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
+
+[tool.coverage.run]
+source = [
+    ".",
+]
+omit = [
+    ".virtualenv",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    'if __name__ == "__main__":',
+]
