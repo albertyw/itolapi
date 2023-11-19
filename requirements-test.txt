@@ -1,6 +1,6 @@
 # Testing
 coverage==7.3.2                  # Test coverage
-ruff==0.1.0                      # Python linting
+ruff==0.1.6                      # Python linting
 
 # Types
 mypy==1.7.0                      # Static typing
