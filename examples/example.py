@@ -61,7 +61,7 @@ itol_exporter = ItolExport()
 itol_exporter.set_export_param_value('tree', '18793532031912684633930')
 itol_exporter.set_export_param_value('format', 'pdf')
 itol_exporter.set_export_param_value('datasetList', 'dataset1')
-# itol_exporter.export('example_pdf.pdf')
+# itol_exporter.export(Path('example_pdf.pdf'))
 # print('exported tree to ',export_location)
 
 # Export the tree above to pdf

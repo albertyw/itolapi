@@ -49,8 +49,11 @@ command line and allows access to all [iTOL options](http://itol.embl.de/help.cg
 
 ```python
 from itolapi import Itol
+from pathlib import Path
+
+
 itol_uploader = Itol()
-itol_uploader.add_file('/path/to/example.tree')
+itol_uploader.add_file(Path('/path/to/example.tree'))
 itol_uploader.params['treeName'] = 'apple'
 status = itol_uploader.upload()
 assert status != False
@@ -92,12 +95,15 @@ options that iTOL has available.
 
 ```python
 from itolapi import ItolExport
+from pathlib import Path
+
+
 itol_exporter = ItolExport()
 itol_exporter.add_export_param_value('tree', tree_id)
 assert format in ['png', 'svg', 'eps', 'ps', 'pdf', 'nexus', 'newick']
 itol_exporter.add_export_param_value('format', format)
 itol_exporter.add_export_param_value(param_key, param_value)
-itol_exporter.export(file_location)
+itol_exporter.export(Path('/path/to/example_tree'))
 ```
 
 Valid `param_key` and `param_value` values can be found on [the iTOL API
