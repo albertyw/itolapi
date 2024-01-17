@@ -28,7 +28,7 @@ test.add_file(current_dir / 'colors_tol.txt')
 test.add_file(current_dir / 'labels.txt')
 test.add_file(current_dir / 'ranges.txt')
 # Add parameters
-test.params['APIkey'] = 'EUFAnM7GhcA2lAZ2xZ79yg'
+test.params['APIkey'] = '<YOUR API KEY HERE>'
 test.params['treeName'] = 'Tree of Life Example'
 # Check parameters
 test.print_variables()
