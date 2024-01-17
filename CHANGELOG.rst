@@ -1,3 +1,11 @@
+4.1.3 January 16, 2024
+----------------------
+
+ - Fix API key character casing
+ - Update dependencies
+ - Various testing/cleanup
+
+
 4.1.2 January 15, 2023
 ----------------------
 
