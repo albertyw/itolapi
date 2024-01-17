@@ -1,5 +1,5 @@
 # Testing
-coverage==7.3.2                  # Test coverage
+coverage==7.4.0                  # Test coverage
 ruff==0.1.6                      # Python linting
 
 # Types
