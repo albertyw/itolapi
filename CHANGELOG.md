@@ -31,7 +31,7 @@
 4.0.2 January 25, 2022
 ----------------------
 
- - Fix executibility of ``itol.py`` and ``itolexport.py``
+ - Fix executibility of `itol.py` and `itolexport.py`
  - Update test dependencies
  - Clean up packaging configuration
 
@@ -79,8 +79,8 @@
 -------------------
 
  - Vastly simplified upload API (cli usage remains the same).
- - Removed ``Itol.add_variable()`` function, added ``Itol.params`` and and ``Itol.add_file``
- - Lowercased all files, import from python package instead (i.e. ``from itolapi import Itol``)
+ - Removed `Itol.add_variable()` function, added `Itol.params` and and `Itol.add_file`
+ - Lowercased all files, import from python package instead (i.e. `from itolapi import Itol`)
 
 2.0.2 July 28, 2018
 -------------------
