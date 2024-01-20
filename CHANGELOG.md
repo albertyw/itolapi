@@ -1,3 +1,12 @@
+v4.1.4 2024-01-20
+-----------------
+
+ - Fix documentation on path args
+ - Update dependencies
+ - Switch from rst to markdown
+ - Switch from setup.py to pyproject
+
+
 v4.1.3 2024-01-16
 -----------------
 
