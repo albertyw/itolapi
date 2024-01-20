@@ -78,7 +78,7 @@ class Itol:
         pprint.pprint(self.params)
 
 
-if __name__ == "__main__":
+def cli() -> None:
     parser = argparse.ArgumentParser(
         description="iTOL Uploader",
         epilog="Report bugs at https://github.com/albertyw/itolapi/"
@@ -94,3 +94,7 @@ if __name__ == "__main__":
     itol_upload.add_file(tree_file)
     itol_upload.upload()
     print(itol_upload.get_webpage())
+
+
+if __name__ == "__main__":
+    cli()

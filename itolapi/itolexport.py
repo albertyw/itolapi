@@ -62,8 +62,7 @@ class ItolExport:
         file_handle.close()
 
 
-# Run from command line
-if __name__ == "__main__":
+def cli() -> None:
     parser = argparse.ArgumentParser(
         description="iTOL Downloader",
         epilog="Report bugs at https://github.com/albertyw/itolapi/"
@@ -89,3 +88,8 @@ if __name__ == "__main__":
     itol_exporter.export(args.file_location)
     print('Exported to ', args.file_location)
     sys.exit(0)
+
+
+# Run from command line
+if __name__ == "__main__":
+    cli()
