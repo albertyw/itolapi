@@ -121,7 +121,7 @@ Development
 To run tests:
 
 ```bash
-python setup.py develop
+pip install -e .
 pip install -r requirements-test.txt
 ruff check .
 mypy .
