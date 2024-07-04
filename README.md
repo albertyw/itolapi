@@ -121,8 +121,7 @@ Development
 To run tests:
 
 ```bash
-pip install -e .
-pip install -r requirements-test.txt
+pip install -e .[test]
 ruff check .
 mypy .
 coverage run -m unittest
