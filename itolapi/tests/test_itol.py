@@ -46,10 +46,13 @@ class ItolTest(unittest.TestCase):
         self.assertEqual(export.params['tree'], '1234')
 
     @patch('itolapi.itol.pprint.pprint')
-    def test_print_variables(self, mock_print: MagicMock) -> None:
+    @patch('builtins.print')
+    def test_print_variables(
+        self, mock_print: MagicMock, mock_pprint:MagicMock
+    ) -> None:
         self.itol.params['treeName'] = 'test'
         with tempfile.NamedTemporaryFile() as temp:
             self.itol.add_file(Path(temp.name))
             self.itol.print_variables()
-        self.assertEqual(mock_print.call_args_list[0][0][0], self.itol.files)
-        self.assertEqual(mock_print.call_args_list[1][0][0], self.itol.params)
+        self.assertEqual(mock_pprint.call_args_list[0][0][0], self.itol.files)
+        self.assertEqual(mock_pprint.call_args_list[1][0][0], self.itol.params)
