@@ -1,3 +1,11 @@
+v4.1.5 2024-08-24
+-----------------
+
+ - Update dependencies
+ - Clean up testing
+ - Remove Pyup
+
+
 v4.1.4 2024-01-20
 -----------------
 
