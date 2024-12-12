@@ -32,12 +32,12 @@ dynamic = ["version", "readme"]
 [project.optional-dependencies]
 test = [
     # Testing
-    "coverage==7.6.1",                  # Test coverage
-    "ruff==0.6.2",                      # Python linting
+    "coverage==7.6.9",                  # Test coverage
+    "ruff==0.8.2",                      # Python linting
 
     # Types
-    "mypy==1.11.2",                     # Static typing
-    "types-requests==2.32.0.20240712",  # Type stubs for requests package
+    "mypy==1.13.0",                     # Static typing
+    "types-requests==2.32.0.20241016",  # Type stubs for requests package
 ]
 
 [project.urls]
