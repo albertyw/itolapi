@@ -65,7 +65,7 @@ class ItolExport:
 def cli() -> None:
     parser = argparse.ArgumentParser(
         description="iTOL Downloader",
-        epilog="Report bugs at https://github.com/albertyw/itolapi/"
+        epilog="Report bugs at https://github.com/albertyw/itolapi/",
     )
     parser.add_argument(
         'tree_id', help="iTOL ID of the tree you are exporting", type=str)

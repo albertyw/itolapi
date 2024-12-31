@@ -48,7 +48,7 @@ class ItolTest(unittest.TestCase):
     @patch('itolapi.itol.pprint.pprint')
     @patch('builtins.print')
     def test_print_variables(
-        self, mock_print: MagicMock, mock_pprint:MagicMock
+        self, mock_print: MagicMock, mock_pprint:MagicMock,
     ) -> None:
         self.itol.params['treeName'] = 'test'
         with tempfile.NamedTemporaryFile() as temp:
