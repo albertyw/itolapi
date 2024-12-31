@@ -49,7 +49,7 @@ class UploadTreeTest(unittest.TestCase):
         output = self.comm.upload_tree(self.files, self.params)
         self.assertEqual(
             mock_requests.post.call_args[0][0],
-            self.comm.upload_url
+            self.comm.upload_url,
         )
         self.assertEqual(mock_requests.post.call_args[1]['data'], self.params)
         self.assertTrue('zipFile' in mock_requests.post.call_args[1]['files'])

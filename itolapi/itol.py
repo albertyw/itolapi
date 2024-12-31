@@ -81,7 +81,7 @@ class Itol:
 def cli() -> None:
     parser = argparse.ArgumentParser(
         description="iTOL Uploader",
-        epilog="Report bugs at https://github.com/albertyw/itolapi/"
+        epilog="Report bugs at https://github.com/albertyw/itolapi/",
     )
     parser.add_argument(
         'api_key', help="iTOL API Key")
