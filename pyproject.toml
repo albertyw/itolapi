@@ -36,7 +36,7 @@ test = [
     "ruff==0.8.2",                      # Python linting
 
     # Types
-    "mypy==1.13.0",                     # Static typing
+    "mypy==1.14.1",                     # Static typing
     "types-requests==2.32.0.20241016",  # Type stubs for requests package
 ]
 
