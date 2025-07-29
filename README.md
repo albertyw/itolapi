@@ -6,8 +6,8 @@ iTOL Python API
 ![PyPI - License](https://img.shields.io/pypi/l/itolapi)
 
 [![Build Status](https://drone.albertyw.com/api/badges/albertyw/itolapi/status.svg)](https://drone.albertyw.com/albertyw/itolapi)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/365d217b9dd6c2f97cb4/test_coverage)](https://codeclimate.com/github/albertyw/itolapi/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/365d217b9dd6c2f97cb4/maintainability)](https://codeclimate.com/github/albertyw/itolapi/maintainability)
+[![Maintainability](https://qlty.sh/gh/albertyw/projects/itolapi/maintainability.svg)](https://qlty.sh/gh/albertyw/projects/itolapi)
+[![Code Coverage](https://qlty.sh/gh/albertyw/projects/itolapi/coverage.svg)](https://qlty.sh/gh/albertyw/projects/itolapi)
 
 > Notice: Due to [iTOL requiring paid subscriptions for batch uploads](https://itol.embl.de/infoReg.cgi),
 > this library will be deprecated after October 1, 2020.
