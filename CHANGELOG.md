@@ -1,3 +1,11 @@
+v4.1.6 2025-11-23
+-----------------
+
+ - Support python 3.13 and 3.14
+ - Update dependencies
+ - Clean up CI
+
+
 v4.1.5 2024-08-24
 -----------------
 
