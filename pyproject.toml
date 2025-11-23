@@ -37,7 +37,7 @@ test = [
 
     # Types
     "mypy==1.18.2",                     # Static typing
-    "types-requests==2.32.0.20250328",  # Type stubs for requests package
+    "types-requests==2.32.4.20250913",  # Type stubs for requests package
 ]
 
 [project.urls]
