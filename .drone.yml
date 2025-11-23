@@ -36,6 +36,7 @@ steps:
     image: python:3.14
     commands:
       - pip install build twine
+      - rm -r tmp
       - python -m build
       - twine upload dist/*
     when:
