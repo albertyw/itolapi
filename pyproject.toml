@@ -4,9 +4,10 @@ authors = [
     {name = "Albert Wang", email = "git@albertyw.com"},
 ]
 description = "API for interacting with itol.embl.de"
-requires-python = ">=3.7"
+requires-python = ">=3.9"
 keywords = ["tree", "life", "compbio", "biology", "bioinformatics"]
 license = "MIT"
+license-files = ["MIT-LICENSE.txt"]
 classifiers = [
     "Development Status :: 7 - Inactive",
     "Environment :: Console",
@@ -14,8 +15,6 @@ classifiers = [
     "Intended Audience :: Science/Research",
     "Natural Language :: English",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
